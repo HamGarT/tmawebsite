@@ -19,6 +19,16 @@ import {
   BadgeCheck,
 } from "lucide-react";
 
+import ImageInicio1 from '@/assets/images/inicio1.webp';
+import nosotrosHero2 from '@/assets/images/nosotrosHero2.webp';
+import ImageNosotros1 from '@/assets/images/nosotros1.webp';
+import ImageNosotros2 from '@/assets/images/nosotros2.webp';
+import ImageNosotros3 from '@/assets/images/nosotros3.webp';
+import ImageSenace from '@/assets/icons/senace_icon.webp';
+import ImageDesa from '@/assets/icons/desa_icon.webp';
+
+
+
 interface NosotrosImages {
   hero?: string;
   project1?: string;
@@ -40,7 +50,22 @@ const COLORS = {
   blue: "#1455B8",
 };
 
-export default function Nosotros({ images = {} }: NosotrosProps) {
+const images = {
+  hero: ImageInicio1,
+  project1: ImageNosotros1,
+  project2: ImageNosotros1,
+  worker: ImageNosotros2,
+  experienceHero: nosotrosHero2,
+  operations: ImageNosotros3,
+  commitment: ImageInicio1,
+  senace: ImageSenace,
+  desa: ImageDesa
+
+}
+
+
+
+export default function Nosotros() {
   const scrollToExperience = () => {
     document
       .getElementById("experiencia")
@@ -56,7 +81,7 @@ export default function Nosotros({ images = {} }: NosotrosProps) {
       <section id="quienes-somos">
 
         {/* HERO */}
-        <div className="grid min-h-[340px] grid-cols-1 lg:grid-cols-[44%_56%]">
+        <div className="grid h-[340px] grid-cols-1 lg:grid-cols-[44%_56%]">
 
           {/* Texto */}
           <div
@@ -71,7 +96,7 @@ export default function Nosotros({ images = {} }: NosotrosProps) {
 
             <div className="relative z-10 max-w-[600px]">
 
-              <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-[52px]">
+              <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-[52px] text-left">
                 ¿Quiénes{" "}
                 <span style={{ color: COLORS.yellow }}>
                   somos?
@@ -83,7 +108,7 @@ export default function Nosotros({ images = {} }: NosotrosProps) {
                 style={{ backgroundColor: COLORS.yellow }}
               />
 
-              <p className="mt-5 max-w-[580px] text-base font-medium leading-7 text-white/95 sm:text-lg">
+              <p className="mt-5 max-w-[580px] text-base font-medium leading-7 text-white/95 sm:text-lg text-left">
                 Somos una empresa peruana especializada en soluciones
                 integrales para minería e industria, abarcando ingeniería,
                 construcción, operación y mantenimiento de plantas, y gestión
@@ -283,7 +308,7 @@ export default function Nosotros({ images = {} }: NosotrosProps) {
               style={{ color: COLORS.navy }}
             />
 
-            <div>
+            <div className="text-left">
               <h3
                 className="text-lg font-bold leading-5"
                 style={{ color: COLORS.navy }}
@@ -344,47 +369,37 @@ export default function Nosotros({ images = {} }: NosotrosProps) {
       <section id="experiencia" className="scroll-mt-20">
 
         {/* HERO EXPERIENCIA */}
-        <div className="grid min-h-[330px] grid-cols-1 lg:grid-cols-[44%_56%]">
+  
+        <div className="grid h-[340px] grid-cols-1 lg:grid-cols-[44%_56%]">
 
           {/* Texto */}
           <div
-            className="relative flex items-center overflow-hidden px-7 py-14 sm:px-12 lg:px-16"
+            className="relative flex items-center overflow-hidden px-7 sm:px-12 lg:px-16"
             style={{ backgroundColor: COLORS.navy }}
           >
-
             <div
               className="absolute -right-20 top-0 hidden h-full w-36 skew-x-[12deg] lg:block"
               style={{ backgroundColor: COLORS.navy }}
             />
 
-            <div className="relative z-10 max-w-[580px]">
-
-              <h2 className="text-4xl font-extrabold leading-[1.05] text-white sm:text-5xl lg:text-[52px]">
+            <div className="relative z-10 max-w-[580px] text-left">
+              <h2 className="text-4xl font-extrabold leading-[1.05] text-white sm:text-5xl lg:text-[48px]">
                 Experiencia y
                 <br />
-
                 <span style={{ color: COLORS.yellow }}>
                   capacidades
                 </span>
               </h2>
 
-              <div
-                className="mt-4 h-[4px] w-20"
-                style={{ backgroundColor: COLORS.yellow }}
-              />
-
-              <p className="mt-5 max-w-[540px] text-base font-medium leading-7 text-white/95 sm:text-lg">
+              <p className="mt-3 max-w-[540px] text-base font-medium leading-6 text-white/95 sm:text-lg">
                 Comprometidos con ofrecer soluciones integrales,
                 innovadoras y sostenibles para minería e industria.
               </p>
-
             </div>
           </div>
 
-
           {/* Imagen */}
-          <div className="relative min-h-[280px] overflow-hidden bg-slate-200 lg:min-h-full">
-
+          <div className="relative h-full overflow-hidden bg-slate-200">
             {images.experienceHero ? (
               <img
                 src={images.experienceHero}
@@ -399,9 +414,7 @@ export default function Nosotros({ images = {} }: NosotrosProps) {
               className="absolute -left-12 top-0 hidden h-full w-24 skew-x-[-12deg] lg:block"
               style={{ backgroundColor: COLORS.navy }}
             />
-
           </div>
-
         </div>
 
 
@@ -412,7 +425,7 @@ export default function Nosotros({ images = {} }: NosotrosProps) {
 
           <MetricCard
             icon={<ClipboardList size={40} />}
-            number="24"
+            numberUp="24"
             label={
               <>
                 proyectos
@@ -426,6 +439,7 @@ export default function Nosotros({ images = {} }: NosotrosProps) {
           <MetricCard
             icon={<Users size={40} />}
             title="Clientes y operaciones"
+            className="text-left"
           >
             Atendemos a empresas mineras, industriales y del sector público
             en múltiples regiones del país.
@@ -434,6 +448,7 @@ export default function Nosotros({ images = {} }: NosotrosProps) {
 
           <MetricCard
             icon={<Globe2 size={40} />}
+            className="text-left"
             title={
               <>
                 Cobertura y
@@ -451,6 +466,7 @@ export default function Nosotros({ images = {} }: NosotrosProps) {
 
           <MetricCard
             icon={<CalendarDays size={40} />}
+            className="text-left"
             title={
               <>
                 Periodo de
@@ -477,7 +493,7 @@ export default function Nosotros({ images = {} }: NosotrosProps) {
               title="PRINCIPALES CLIENTES Y OPERACIONES"
             />
 
-            <div className="grid grid-cols-2 gap-x-6 gap-y-2 p-5 text-sm">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-2 p-5 text-sm text-left">
 
               <ClientItem text="BVN Yumpag" />
               <ClientItem text="Minera Quinchia SAS" />
@@ -580,15 +596,10 @@ export default function Nosotros({ images = {} }: NosotrosProps) {
               <div className="flex items-center gap-6 px-8 py-7">
 
                 <div className="flex h-16 min-w-32 items-center justify-center rounded-md border border-slate-100 px-4">
-                  <span
-                    className="text-2xl font-extrabold tracking-tight"
-                    style={{ color: "#1683C7" }}
-                  >
-                    senace
-                  </span>
+                  <img src={images.senace} alt="SENACE" className="h-full w-full object-contain" />
                 </div>
 
-                <div>
+                <div className="text-left">
                   <h3
                     className="text-base font-extrabold"
                     style={{ color: COLORS.navy }}
@@ -609,15 +620,10 @@ export default function Nosotros({ images = {} }: NosotrosProps) {
               <div className="flex items-center gap-6 px-8 py-7">
 
                 <div className="flex h-16 min-w-32 items-center justify-center rounded-md border border-slate-100 px-4">
-                  <span
-                    className="text-xl font-extrabold"
-                    style={{ color: "#26734D" }}
-                  >
-                    DESA-USB
-                  </span>
+                  <img src={images.desa} alt="DESA-USB" className="h-full w-full object-contain" />
                 </div>
 
-                <div>
+                <div className="text-left">
                   <h3
                     className="text-base font-extrabold"
                     style={{ color: COLORS.navy }}
@@ -742,7 +748,7 @@ function InfoCard({
       <div className={wide ? "min-w-0 flex-1" : "min-w-0"}>
 
         <h3
-          className="text-lg font-extrabold leading-5"
+          className="text-lg font-extrabold leading-5 text-left"
           style={{ color: COLORS.navy }}
         >
           {title}
@@ -753,7 +759,7 @@ function InfoCard({
           style={{ backgroundColor: COLORS.yellow }}
         />
 
-        <div className="text-[13px] leading-[1.45] text-slate-600">
+        <div className="text-[13px] leading-[1.45] text-slate-600 text-left">
           {children}
         </div>
 
@@ -774,17 +780,22 @@ interface MetricCardProps {
   label?: React.ReactNode;
   title?: React.ReactNode;
   children?: React.ReactNode;
+  className?: string;
+  numberUp?: string;
 }
 
 function MetricCard({
   icon,
   number,
+  numberUp,
   label,
   title,
   children,
+  className = "",
+
 }: MetricCardProps) {
   return (
-    <div className="flex min-h-[140px] items-center gap-5 rounded-md border border-slate-200 bg-white px-6 py-5 shadow-sm">
+    <div className={`flex min-h-[140px] items-center gap-5 rounded-md border border-slate-200 bg-white px-6 py-5 shadow-sm ${className}`}>
 
       <div
         className="flex h-[70px] w-[70px] shrink-0 items-center justify-center rounded-full text-white"
@@ -795,15 +806,16 @@ function MetricCard({
 
       <div className="min-w-0">
 
-        {number && (
+
+
+        {numberUp && (
           <div
             className="text-4xl font-extrabold leading-none"
             style={{ color: COLORS.blue }}
           >
-            {number}
+            {numberUp}
           </div>
         )}
-
         {label && (
           <div
             className="mt-2 text-lg font-bold leading-5"
@@ -820,6 +832,15 @@ function MetricCard({
           >
             {title}
           </h3>
+        )}
+
+        {number && (
+          <div
+            className="text-4xl font-extrabold leading-none"
+            style={{ color: COLORS.blue }}
+          >
+            {number}
+          </div>
         )}
 
         {children && (
