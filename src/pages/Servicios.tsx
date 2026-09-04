@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ImageInicio1 from '@/assets/images/inicio1.webp';
+import serviciosImage from '@/assets/images/serviciosSlide.webp';
 
 const serviciosData = [
   {
@@ -111,11 +112,15 @@ export default function Servicios() {
               </div>
 
               {/* Descripción */}
-              <p className="text-[12px] text-gray-500 leading-relaxed mt-1">
+              <p className="text-[12px] text-gray-500 leading-relaxed mt-1 text-left">
                 {servicio.description}
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 rounded-2xl overflow-hidden">
+          <img src={serviciosImage} alt="Servicios" style={{ width: '100%', height: 'auto' }} />
         </div>
 
         {/* Footer / Call to Action */}

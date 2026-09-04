@@ -1,4 +1,5 @@
 import React from 'react';
+import HeroImage from '@/assets/images/proyectosHero1.webp';
 
 const COLORS = {
   navy: "#0B1B42",
@@ -176,40 +177,40 @@ const experienciasTMA = [
 export default function TablaExperiencias() {
   return (
     <main className="w-full overflow-hidden bg-white font-sans text-slate-700">
-      
+
       {/* =========================================================
           HERO SECTION
       ========================================================= */}
       <section className="w-full bg-white relative">
-        <div className="grid min-h-[300px] grid-cols-1 lg:grid-cols-[55%_45%] w-full bg-white">
-          
+        <div className="grid h-[300px] grid-cols-1 lg:grid-cols-[55%_45%] w-full bg-white">
+
           {/* Textos (Izquierda) */}
           <div className="relative flex flex-col justify-center bg-white px-5 py-14 sm:px-12 xl:px-16 z-20">
             {/* Pequeña franja amarilla de acento visual (como en la imagen original) */}
             <div className="absolute left-0 top-1/4 h-32 w-1.5" style={{ backgroundColor: COLORS.yellow }}></div>
-            
+
             <div className="pl-4">
-              <h1 
-                className="text-4xl sm:text-5xl lg:text-[52px] font-extrabold leading-tight tracking-tight mb-1"
+              <h1
+                className="text-4xl sm:text-5xl lg:text-[52px] font-extrabold leading-tight tracking-tight mb-1 text-left"
                 style={{ color: COLORS.navy }}
               >
                 Tabla de experiencias TMA
               </h1>
-              
-              <h2 
-                className="text-xl sm:text-2xl font-bold mb-4"
+
+              <h2
+                className="text-xl sm:text-2xl font-bold mb-4 text-left"
                 style={{ color: COLORS.blueText }}
               >
                 Completa sin columna de costos
               </h2>
-              
-              <div 
+
+              <div
                 className="mt-2 mb-5 h-[3px] w-16"
                 style={{ backgroundColor: COLORS.yellow }}
               />
-              
-              <p 
-                className="font-medium text-base sm:text-lg max-w-[650px] leading-snug"
+
+              <p
+                className="font-medium text-base sm:text-lg max-w-[650px] leading-snug text-left"
                 style={{ color: COLORS.navy }}
               >
                 Relación de trabajos registrados en experiencia empresarial de TMA Ingenieros SAC.
@@ -218,18 +219,9 @@ export default function TablaExperiencias() {
           </div>
 
           {/* Imagen Diagonal (Derecha) */}
-          <div className="relative min-h-[250px] lg:min-h-full overflow-hidden bg-slate-200">
-            {/* Corte Diagonal azul marino */}
-            <div 
-              className="absolute -left-16 top-0 hidden h-full w-32 skew-x-[15deg] lg:block z-10"
-              style={{ backgroundColor: COLORS.navy }}
-            />
-            {/* Franja delgada adicional para darle el mismo estilo de la imagen */}
-            <div 
-              className="absolute -left-20 top-0 hidden h-full w-12 skew-x-[15deg] lg:block z-20 opacity-20"
-              style={{ backgroundColor: 'white' }}
-            />
-            <img src="" alt="Fondo Planta Experiencia" className="w-full h-full object-cover relative z-0" />
+          <div className="relative min-h-[250px] lg:min-h-full overflow-hidden">
+
+            <img src={HeroImage} alt="Fondo Planta Experiencia" className="w-full h-full object-cover relative z-0" />
           </div>
         </div>
       </section>
@@ -240,9 +232,9 @@ export default function TablaExperiencias() {
       <section className="w-full px-5 sm:px-12 xl:px-16 pb-20 pt-6">
         <div className="w-full overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
           <div className="min-w-[1100px] bg-white">
-            
+
             {/* Cabecera de la Tabla */}
-            <div 
+            <div
               className="flex text-white text-[13px] font-bold py-3.5 px-4"
               style={{ backgroundColor: COLORS.navy }}
             >
@@ -256,9 +248,9 @@ export default function TablaExperiencias() {
             {/* Cuerpo de la Tabla */}
             <div className="flex flex-col">
               {experienciasTMA.map((item, index) => (
-                <div 
-                  key={index} 
-                  className={`flex items-start text-[13px] py-4 px-4 border-b border-gray-100 hover:bg-gray-100/70 transition-colors ${index % 2 !== 0 ? 'bg-slate-50/50' : 'bg-white'}`}
+                <div
+                  key={index}
+                  className={`flex items-start text-[13px] text-left px-4 border-b border-gray-100 hover:bg-gray-100/70 transition-colors ${index % 2 !== 0 ? 'bg-slate-50/50' : 'bg-white'}`}
                 >
                   {/* Periodo */}
                   <div className="w-32 shrink-0 text-slate-500 font-medium">
@@ -266,22 +258,22 @@ export default function TablaExperiencias() {
                       <div key={i}>{line}</div>
                     ))}
                   </div>
-                  
+
                   {/* Cliente */}
                   <div className="w-56 shrink-0 font-bold" style={{ color: COLORS.navy }}>
                     {item.cliente}
                   </div>
-                  
+
                   {/* Proyecto */}
                   <div className="w-64 shrink-0 font-bold pr-4" style={{ color: COLORS.blueText }}>
                     {item.proyecto}
                   </div>
-                  
+
                   {/* Alcance */}
                   <div className="flex-1 shrink-0 text-slate-600 font-medium pr-4">
                     {item.alcance}
                   </div>
-                  
+
                   {/* Sustento */}
                   <div className="w-32 shrink-0 text-slate-500 font-medium">
                     {item.sustento}

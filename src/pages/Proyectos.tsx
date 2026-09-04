@@ -10,31 +10,46 @@ import {
     ChevronRight
 } from 'lucide-react';
 import { NavLink } from 'react-router';
+import Hero1Image from '@/assets/images/proyectosHero1.webp';
+import Hero2Image from '@/assets/images/proyectosHero2.webp';
+import Proyectos1Image from '@/assets/images/proyectos1.webp';
+import Proyectos2Image from '@/assets/images/proyectos2.webp';
+import Proyectos3Image from '@/assets/images/proyectos3.webp';
+import Proyectos4Image from '@/assets/images/proyectos4.webp';
+import Proyectos6Image from '@/assets/images/proyectos6.webp';
+import clientIcon from '@/assets/icons/client_icon.webp';
+import Proyectos7Image from '@/assets/images/proyectos7.webp';
+import Proyectos8Image from '@/assets/images/proyectos8.webp';
+import Proyectos9Image from '@/assets/images/proyectos9.webp';
+import Proyectos10Image from '@/assets/images/proyectos10.webp';
+import Proyectos11Image from '@/assets/images/proyectos11.webp';
+import Proyectos12Image from '@/assets/images/proyectos12.webp';
 
 // Constantes de colores para mantener la consistencia
 const COLORS = {
     navy: "#0B1B42",
     yellow: "#F5A623",
     lightBg: "#F8F9FA",
-    blueText: "#3b5998"
+    blueText: "#3b5998",
+    blueTextVariant: "#053092"
 };
 
 const proyectosParte1 = [
-    { id: "01", cliente: "BVN San Gabriel", proyecto: "PTARI de 15 L/s", alcance: "Diseño, suministro, construcción, operación y start-up de la planta", ubicacion: "Moquegua", fecha: "2022 - 2023" },
-    { id: "02", cliente: "BVN Orcopampa", proyecto: "Operación Planta DETOX", alcance: "Operación de la planta de tratamiento de aguas cianuradas", ubicacion: "Arequipa / Orcopampa", fecha: "2024 - 2025" },
-    { id: "03", cliente: "BVN Orcopampa", proyecto: "Operación Planta DETOX", alcance: "Operación de la planta de tratamiento de aguas cianuradas", ubicacion: "Arequipa / Orcopampa", fecha: "2021 - 2022" },
-    { id: "04", cliente: "Minera Yanacocha / BASF Peruana", proyecto: "Operación Planta DETOX", alcance: "Operación y control de reactivos químicos, Planta La Quinua", ubicacion: "Cajamarca", fecha: "2014 - 2017" },
-    { id: "05", cliente: "BVN Yumpag", proyecto: "PTARI de 450 L/s", alcance: "Ingeniería de factibilidad del proyecto", ubicacion: "Lima / Oyón", fecha: "2022" },
-    { id: "06", cliente: "BVN San Gabriel", proyecto: "PTARI de 5 L/s", alcance: "Diseño, construcción y operación de la planta", ubicacion: "Moquegua", fecha: "2017" }
+    { id: "01", cliente: "BVN San Gabriel", proyecto: "PTARI de 15 L/s", alcance: "Diseño, suministro, construcción, operación y start-up de la planta", ubicacion: "Moquegua", fecha: "2022 - 2023", imagen: Proyectos1Image },
+    { id: "02", cliente: "BVN Orcopampa", proyecto: "Operación Planta DETOX", alcance: "Operación de la planta de tratamiento de aguas cianuradas", ubicacion: "Arequipa / Orcopampa", fecha: "2024 - 2025", imagen: Proyectos2Image },
+    { id: "03", cliente: "BVN Orcopampa", proyecto: "Operación Planta DETOX", alcance: "Operación de la planta de tratamiento de aguas cianuradas", ubicacion: "Arequipa / Orcopampa", fecha: "2021 - 2022", imagen: Proyectos3Image },
+    { id: "04", cliente: "Minera Yanacocha / BASF Peruana", proyecto: "Operación Planta DETOX", alcance: "Operación y control de reactivos químicos, Planta La Quinua", ubicacion: "Cajamarca", fecha: "2014 - 2017", imagen: Proyectos4Image },
+    { id: "05", cliente: "BVN Yumpag", proyecto: "PTARI de 450 L/s", alcance: "Ingeniería de factibilidad del proyecto", ubicacion: "Lima / Oyón", fecha: "2022", imagen: Proyectos3Image },
+    { id: "06", cliente: "BVN San Gabriel", proyecto: "PTARI de 5 L/s", alcance: "Diseño, construcción y operación de la planta", ubicacion: "Moquegua", fecha: "2017", imagen: Proyectos6Image }
 ];
 
 const proyectosParte2 = [
-    { id: "01", cliente: "BVN JULCANI", proyecto: "PTARI Acchilla", descripcion: "Diseño del manejo de aguas para la PTARI", ubicacion: "Huancavelica", fecha: "2020" },
-    { id: "02", cliente: "BVN JULCANI", proyecto: "PTARI", descripcion: "Diseño del manejo de aguas para la PTARI", ubicacion: "Huancavelica", fecha: "2020" },
-    { id: "03", cliente: "MINERA YANAQUIHUA", proyecto: "Manejo Integral de Aguas", descripcion: "Diseño integral del manejo de aguas", ubicacion: "Perú", fecha: "2014" },
-    { id: "04", cliente: "BVN JULCANI", proyecto: "Diseño de Tolva", descripcion: "Ingeniería de detalle de la tolva de gruesos", ubicacion: "Huancavelica", fecha: "2021 - 2022" },
-    { id: "05", cliente: "FERREYROS S.A.", proyecto: "Operación y Mantenimiento PTARD", descripcion: "Operación y mantenimiento de la PTARD", ubicacion: "Perú", fecha: "2019 - 2021" },
-    { id: "06", cliente: "BVN YUMPAG", proyecto: "PTARI de 250 L/s", descripcion: "Ingeniería de factibilidad", ubicacion: "Lima / Oyón", fecha: "2025" }
+    { id: "01", cliente: "BVN JULCANI", proyecto: "PTARI Acchilla", descripcion: "Diseño del manejo de aguas para la PTARI", ubicacion: "Huancavelica", fecha: "2020", imagen: Proyectos7Image },
+    { id: "02", cliente: "BVN JULCANI", proyecto: "PTARI", descripcion: "Diseño del manejo de aguas para la PTARI", ubicacion: "Huancavelica", fecha: "2020", imagen: Proyectos8Image },
+    { id: "03", cliente: "MINERA YANAQUIHUA", proyecto: "Manejo Integral de Aguas", descripcion: "Diseño integral del manejo de aguas", ubicacion: "Perú", fecha: "2014", imagen: Proyectos9Image },
+    { id: "04", cliente: "BVN JULCANI", proyecto: "Diseño de Tolva", descripcion: "Ingeniería de detalle de la tolva de gruesos", ubicacion: "Huancavelica", fecha: "2021 - 2022", imagen: Proyectos10Image },
+    { id: "05", cliente: "FERREYROS S.A.", proyecto: "Operación y Mantenimiento PTARD", descripcion: "Operación y mantenimiento de la PTARD", ubicacion: "Perú", fecha: "2019 - 2021", imagen: Proyectos11Image },
+    { id: "06", cliente: "BVN YUMPAG", proyecto: "PTARI de 250 L/s", descripcion: "Ingeniería de factibilidad", ubicacion: "Lima / Oyón", fecha: "2025", imagen: Proyectos12Image }
 ];
 
 export default function Proyectos() {
@@ -47,13 +62,13 @@ export default function Proyectos() {
             <section id="proyectos-1" className="w-full pt-6">
 
                 {/* HERO SECCIÓN 1 */}
-                <div className="relative w-full px-5 py-10 sm:px-12 xl:px-16 flex items-center min-h-[250px] bg-white">
+                <div className="relative w-full px-5 py-10 sm:px-12 xl:px-16 flex items-center min-h-[250px] bg-white text-left">
                     <div className="relative z-10 w-full lg:w-[55%]">
                         <h1
-                            className="text-4xl sm:text-5xl lg:text-[52px] font-extrabold leading-tight mb-4 tracking-tight"
+                            className="text-4xl sm:text-5xl lg:text-[72px] font-extrabold leading-tight mb-4 tracking-tight"
                             style={{ color: COLORS.navy }}
                         >
-                            Proyectos destacados
+                            Proyectos <span style={{ color: COLORS.blueTextVariant }}>destacados</span>
                         </h1>
 
                         <div
@@ -70,8 +85,8 @@ export default function Proyectos() {
                     </div>
 
                     {/* Imagen curva de fondo derecha (solo desktop) */}
-                    <div className="absolute right-0 top-0 w-[45%] h-[120%] hidden lg:block overflow-hidden rounded-bl-[100px] bg-slate-200 z-0">
-                        <img src="" alt="Fondo Planta" className="w-full h-full object-cover" />
+                    <div className="absolute right-0 top-0 w-[55%] h-[120%] hidden lg:block overflow-hidden rounded-bl-[100px]  z-0">
+                        <img src={Hero1Image} alt="Fondo Planta" className="w-full h-full object-cover" />
                     </div>
                 </div>
 
@@ -86,7 +101,7 @@ export default function Proyectos() {
                                 style={{ backgroundColor: COLORS.navy }}
                             >
                                 <div className="w-16"></div>
-                                <div className="w-28"></div>
+                                <div className="w-58"></div>
                                 <div className="w-56 flex items-center gap-2 pl-4"><Users size={16} style={{ color: COLORS.yellow }} /> CLIENTE</div>
                                 <div className="w-64 flex items-center gap-2"><FolderOpen size={16} style={{ color: COLORS.yellow }} /> PROYECTO</div>
                                 <div className="flex-1 flex items-center gap-2"><Settings size={16} style={{ color: COLORS.yellow }} /> ALCANCE</div>
@@ -112,17 +127,17 @@ export default function Proyectos() {
                                         </div>
 
                                         {/* Imagen */}
-                                        <div className="w-28 flex justify-center shrink-0">
-                                            <div className="w-24 h-14 bg-slate-200 rounded overflow-hidden">
-                                                <img src="" alt={`Proyecto ${item.id}`} className="w-full h-full object-cover" />
+                                        <div className="w-58 flex justify-center shrink-0">
+                                            <div className="w-58 h-14 bg-slate-200 rounded overflow-hidden">
+                                                <img src={item.imagen} alt={`Proyecto ${item.id}`} className="w-full h-full object-cover" />
                                             </div>
                                         </div>
 
                                         {/* Cliente */}
-                                        <div className="w-56 pl-4 flex items-center gap-3 font-semibold shrink-0" style={{ color: COLORS.navy }}>
+                                        <div className="w-56 pl-4 flex items-center gap-3 font-semibold shrink-0 text-left" style={{ color: COLORS.navy }}>
                                             <div className="w-6 shrink-0 flex justify-center">
                                                 {/* Imagotipo / Nubes */}
-                                                <img src="" alt="Icon" className="w-6 h-6 object-contain" />
+                                                <img src={clientIcon} alt="Icon" className="w-10 h-10 object-contain" />
                                             </div>
                                             <span className="leading-tight">{item.cliente}</span>
                                         </div>
@@ -134,7 +149,7 @@ export default function Proyectos() {
                                         </div>
 
                                         {/* Alcance */}
-                                        <div className="flex-1 pr-4 flex items-start gap-2 text-gray-600">
+                                        <div className="flex-1 pr-4 flex items-start gap-2 text-gray-600 text-left">
                                             <CheckCircle2 size={18} className="shrink-0 mt-0.5" style={{ color: COLORS.yellow }} />
                                             <span className="leading-snug text-sm">{item.alcance}</span>
                                         </div>
@@ -158,7 +173,7 @@ export default function Proyectos() {
                     </div>
 
                     {/* Footer Sección 1 */}
-                    <div className="mt-5 bg-gray-50 rounded-lg p-5 flex flex-col md:flex-row items-center border border-gray-200 shadow-sm">
+                    <NavLink to="/proyectos/experiencias" className="mt-5 bg-gray-50 rounded-lg p-5 flex flex-col md:flex-row items-center border border-gray-200 shadow-sm text-left">
                         <div className="flex items-center flex-1 mb-4 md:mb-0">
                             <div
                                 className="w-12 h-12 rounded-full border-[2.5px] flex items-center justify-center shrink-0 mr-4"
@@ -175,12 +190,22 @@ export default function Proyectos() {
                             </div>
                         </div>
                         <div className="flex shrink-0">
-                            <ChevronRight size={36} className="opacity-20 -mr-5 text-gray-400" />
-                            <ChevronRight size={36} className="opacity-40 -mr-5 text-gray-400" />
-                            <ChevronRight size={36} className="opacity-70 -mr-5 text-gray-400" />
-                            <ChevronRight size={36} className="text-gray-400" />
+                            <ChevronRight size={36} className="opacity-20 -mr-5 text-gray-400 animate-chevron-wave" style={{ animationDelay: '0ms' }} />
+                            <ChevronRight size={36} className="opacity-40 -mr-5 text-gray-400 animate-chevron-wave" style={{ animationDelay: '150ms' }} />
+                            <ChevronRight size={36} className="opacity-70 -mr-5 text-gray-400 animate-chevron-wave" style={{ animationDelay: '300ms' }} />
+                            <ChevronRight size={36} className="text-gray-400 animate-chevron-wave" style={{ animationDelay: '450ms' }} />
                         </div>
-                    </div>
+
+                        <style>{`
+    @keyframes chevron-wave {
+        0%, 100% { opacity: 0.2; transform: translateX(0); }
+        50% { opacity: 1; transform: translateX(4px); }
+    }
+    .animate-chevron-wave {
+        animation: chevron-wave 1.2s ease-in-out infinite;
+    }
+`}</style>
+                    </NavLink>
                 </div>
             </section>
 
@@ -197,19 +222,19 @@ export default function Proyectos() {
             <section id="proyectos-2" className="w-full pb-20 bg-[#F8F9FB]">
 
                 {/* HERO SECCIÓN 2 CON CORTE DIAGONAL */}
-                <div className="grid min-h-[300px] grid-cols-1 lg:grid-cols-[45%_55%] w-full bg-white">
+                <div className="grid min-h-[300px] grid-cols-1 lg:grid-cols-[45%_55%] w-full bg-white text-left">
 
                     {/* Texto (Izquierda) */}
                     <div className="relative flex items-center bg-white px-5 py-14 sm:px-12 xl:px-16">
                         <div className="relative z-20 w-full max-w-[600px]">
                             <h2
-                                className="text-4xl sm:text-5xl lg:text-[52px] font-extrabold leading-[1.05] tracking-tight uppercase"
+                                className="text-4xl sm:text-5xl lg:text-[62px] font-extrabold leading-[1.05] tracking-tight uppercase"
                                 style={{ color: COLORS.navy }}
                             >
                                 Proyectos
                             </h2>
                             <h2
-                                className="text-4xl sm:text-5xl lg:text-[52px] font-extrabold leading-tight tracking-tight uppercase mb-4"
+                                className="text-4xl sm:text-5xl lg:text-[62px] font-extrabold leading-tight tracking-tight uppercase mb-4"
                                 style={{ color: COLORS.yellow }}
                             >
                                 Destacados II
@@ -224,13 +249,10 @@ export default function Proyectos() {
                     </div>
 
                     {/* Imagen (Derecha) con diagonal Navy */}
-                    <div className="relative min-h-[280px] bg-slate-200 lg:min-h-full overflow-hidden">
+                    <div className="relative min-h-[280px]  lg:min-h-full overflow-hidden">
                         {/* Corte Diagonal azul marino para dividir */}
-                        <div
-                            className="absolute -left-12 top-0 hidden h-full w-28 skew-x-[15deg] lg:block z-10"
-                            style={{ backgroundColor: COLORS.navy }}
-                        />
-                        <img src="" alt="Fondo Planta II" className="w-full h-full object-cover relative z-0" />
+
+                        <img src={Hero2Image} alt="Fondo Planta II" className="w-full h-full object-cover relative z-0" />
                     </div>
                 </div>
 
@@ -245,23 +267,28 @@ export default function Proyectos() {
                                 {/* Imagen de la Card */}
                                 <div className="w-[45%] bg-slate-200 relative shrink-0">
                                     <div
-                                        className="absolute top-0 left-0 text-white font-bold text-sm px-3 py-1.5 rounded-br-lg z-10 shadow-sm"
-                                        style={{ backgroundColor: COLORS.navy }}
+                                        className="absolute top-0 left-0 z-10 w-11 h-11 flex items-center justify-center shadow-sm [clip-path:polygon(50%_0%,_100%_25%,_100%_75%,_50%_100%,_0%_75%,_0%_25%)]"
+                                        style={{ backgroundColor: '#F5A623' }}
                                     >
-                                        {item.id}
+                                        <div
+                                            className="w-10 h-16 flex items-center justify-center text-white font-bold text-sm [clip-path:polygon(50%_0%,_100%_25%,_100%_75%,_50%_100%,_0%_75%,_0%_25%)]"
+                                            style={{ backgroundColor: COLORS.navy }}
+                                        >
+                                            {item.id}
+                                        </div>
                                     </div>
-                                    <img src="" alt={`Proyecto ${item.id}`} className="w-full h-full object-cover absolute inset-0" />
+                                    <img src={item.imagen} alt={`Proyecto ${item.id}`} className="w-full h-full object-cover absolute inset-0" />
                                 </div>
 
                                 {/* Contenido de la Card */}
                                 <div className="p-5 flex flex-col justify-between w-[55%]">
                                     <div>
-                                        <h3 className="font-extrabold text-[15px] leading-tight mb-1" style={{ color: COLORS.navy }}>{item.cliente}</h3>
-                                        <h4 className="font-bold text-sm mb-2" style={{ color: COLORS.yellow }}>{item.proyecto}</h4>
+                                        <h3 className="font-extrabold text-[15px] leading-tight mb-1 text-left" style={{ color: COLORS.navy }}>{item.cliente}</h3>
+                                        <h4 className="font-bold text-sm mb-2 text-left" style={{ color: COLORS.yellow }}>{item.proyecto}</h4>
 
                                         <div className="w-full border-b border-dotted border-gray-300 mb-2"></div>
 
-                                        <p className="text-gray-600 text-[13px] leading-tight line-clamp-3">
+                                        <p className="text-gray-600 text-[13px] leading-tight line-clamp-3 text-left">
                                             {item.descripcion}
                                         </p>
                                     </div>
@@ -282,7 +309,7 @@ export default function Proyectos() {
                     </div>
 
                     {/* Footer Sección 2 */}
-                    <NavLink to="/proyectos/experiencias" className="mt-8 bg-white rounded-lg p-5 flex flex-col md:flex-row items-center border border-gray-200 shadow-sm" >
+                    <NavLink to="/proyectos/experiencias" className="mt-8 bg-white rounded-lg p-5 flex flex-col md:flex-row items-center border border-gray-200 shadow-sm text-left" >
                         <div className="flex items-center flex-1 mb-4 md:mb-0">
                             <div
                                 className="w-12 h-12 rounded-full border-[2.5px] flex items-center justify-center shrink-0 mr-4"
@@ -299,11 +326,21 @@ export default function Proyectos() {
                             </div>
                         </div>
                         <div className="flex shrink-0">
-                            <ChevronRight size={36} className="opacity-20 -mr-5 text-gray-400" />
-                            <ChevronRight size={36} className="opacity-40 -mr-5 text-gray-400" />
-                            <ChevronRight size={36} className="opacity-70 -mr-5 text-gray-400" />
-                            <ChevronRight size={36} style={{ color: COLORS.yellow }} />
+                            <ChevronRight size={36} className="opacity-20 -mr-5 text-gray-400 animate-chevron-wave" style={{ animationDelay: '0ms' }} />
+                            <ChevronRight size={36} className="opacity-40 -mr-5 text-gray-400 animate-chevron-wave" style={{ animationDelay: '150ms' }} />
+                            <ChevronRight size={36} className="opacity-70 -mr-5 text-gray-400 animate-chevron-wave" style={{ animationDelay: '300ms' }} />
+                            <ChevronRight size={36} className="animate-chevron-wave" style={{ color: COLORS.yellow, animationDelay: '450ms' }} />
                         </div>
+
+                        <style>{`
+    @keyframes chevron-wave {
+        0%, 100% { opacity: 0.2; transform: translateX(0); }
+        50% { opacity: 1; transform: translateX(4px); }
+    }
+    .animate-chevron-wave {
+        animation: chevron-wave 1.2s ease-in-out infinite;
+    }
+`}</style>
                     </NavLink>
                 </div>
             </section>
