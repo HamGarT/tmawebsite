@@ -26,13 +26,13 @@ export default function Inicio() {
             <section className="relative h-[60vh] min-h-[420px] bg-[#031b40] flex flex-col justify-center overflow-hidden">
                 <div className="absolute inset-y-0 right-0 w-[70%] z-0">
                     <img src={ImageHero} alt="Hero" className="absolute inset-0 w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#031b40] via-[#031b40]/90 to-transparent/10"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#031b40] via-[#031b40]/40 to-transparent/10"></div>
                 </div>
 
                 <div className="relative z-10 w-full md:w-[65%] px-6 md:px-12 flex flex-col justify-center gap-3 md:gap-4 py-0 my-0">
                     <h1 className="text-[28px] md:text-[40px] font-extrabold leading-[1.15] text-white tracking-tight  text-left">
                         Ingeniería, construcción<br /> y gestión
-                        ambiental para<br/> <span className="text-[#fca311]">minería e industria</span>
+                        ambiental para<br/> <span className="text-[#fca311]">minería <span className="text-white">e</span> industria</span>
                     </h1>
 
                     <p className="text-[13px] md:text-[15px] text-gray-200 leading-snug max-w-[90%] font-medium text-left">

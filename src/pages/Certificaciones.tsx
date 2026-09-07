@@ -8,7 +8,19 @@ import {
     Mail,
     Check,
     Droplet,
+    ChevronRight,
 } from "lucide-react";
+import nosotrosHero2Image from "@/assets/images/nosotrosHero2.webp";
+import logoIso9001 from "@/assets/icons/iso9001two_icon.webp";
+import logoIso14001 from "@/assets/icons/iso14001_icon.webp";
+import logoIso45001 from "@/assets/icons/iso45001_icon.webp";
+import logoBureauVeritas from "@/assets/icons/bureautwo_icon.webp";
+import logoSenace from "@/assets/icons/senacetwo_icon.webp";
+import selloDesaUsb from "@/assets/icons/desatwo_icon.webp";
+import cert1Image from "@/assets/images/cert1.webp";
+import cert2Image from "@/assets/images/cert2.webp";
+import cert3Image from "@/assets/images/cert3.webp";
+import logoTMA from "@/assets/images/logo.webp";
 
 /**
  * TODO: reemplaza estos placeholders por tus imports reales, por ejemplo:
@@ -16,15 +28,12 @@ import {
  *
  * Las rutas de abajo son solo referencia para que sepas qué imagen va en cada lugar.
  */
-const heroBackground = "/images/certificaciones/hero-planta-tratamiento.jpg";
-const logoIso9001 = "/images/certificaciones/iso-9001.png";
-const logoIso14001 = "/images/certificaciones/iso-14001.png";
-const logoIso45001 = "/images/certificaciones/iso-45001.png";
-const logoBureauVeritas = "/images/certificaciones/bureau-veritas.png";
-const iconoSenace = "/images/certificaciones/icono-senace.png"; // emblema circular azul/verde
-const logoSenace = "/images/certificaciones/logo-senace.png";
-const selloDesaUsb = "/images/certificaciones/sello-desa-usb.png";
-const logoTMA = "/images/certificaciones/logo-tma.png";
+
+
+
+
+
+
 
 // Ajusta estos dos valores si el azul/naranja no calzan exacto con tu marca
 const NAVY = "#0B1E45";
@@ -38,7 +47,7 @@ export default function Certificaciones() {
                 {/* Foto de fondo (lado derecho) */}
                 <div className="absolute inset-y-0 right-0 hidden w-2/3 md:block">
                     <img
-                        src={heroBackground}
+                        src={nosotrosHero2Image}
                         alt="Planta de tratamiento de aguas"
                         className="h-full w-full object-cover"
                     />
@@ -50,7 +59,7 @@ export default function Certificaciones() {
                     />
                 </div>
 
-                <div className="relative z-10 px-6 py-10 sm:px-10 md:max-w-xl md:py-14">
+                <div className="relative z-10 px-6 py-10 sm:px-10 md:max-w-xl md:py-14 text-left">
                     <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl">
                         Certificaciones,
                         <br />
@@ -70,7 +79,7 @@ export default function Certificaciones() {
                 {/* --- Card 1: Sistema de gestión y homologación --- */}
                 <div className="flex max-w-4xl gap-6 rounded-3xl bg-white p-6 shadow-sm md:gap-8 md:p-8">
                     {/* Left Sidebar Graphic */}
-                    <div className="relative flex w-20 shrink-0 flex-col items-center">
+                    <div className="relative flex w-24 shrink-0 flex-col items-center">
                         <div
                             className="absolute -left-2 top-0 z-10 flex h-10 w-12 items-center justify-center rounded-lg text-lg font-bold text-white shadow-[0_0_0_3px_white]"
                             style={{ backgroundColor: NAVY }}
@@ -78,16 +87,19 @@ export default function Certificaciones() {
                             01
                         </div>
                         <div
-                            className="mt-6 flex h-40 w-full flex-col items-center justify-center rounded-2xl"
+                            className="mt-6 flex min-h-[14rem] w-full flex-col items-center justify-center rounded-2xl p-4"
                             style={{ backgroundColor: NAVY }}
                         >
-                            {/* Assuming 'Award' icon serves as the base for the badge */}
-                            <Award className="h-12 w-12 text-white" strokeWidth={2} />
+                            <img
+                                src={cert1Image}
+                                alt="Registro SENACE Emblema"
+                                className="h-20 w-20 object-contain"
+                            />
                         </div>
                     </div>
 
                     {/* Right Content Area */}
-                    <div className="flex flex-col justify-center pt-2">
+                    <div className="flex flex-col justify-center pt-2 text-left">
                         <h3
                             className="mb-3 text-xl font-extrabold tracking-tight text-slate-800"
                             style={{ color: NAVY }}
@@ -105,7 +117,7 @@ export default function Certificaciones() {
                         {/* Logos Grid with vertical dividers */}
                         <div className="grid grid-cols-4 divide-x divide-slate-200 pt-2">
                             <div className="flex flex-col items-center gap-2 px-2 text-center">
-                                <img src={logoIso9001} alt="ISO 9001" className="h-12 w-12 object-contain" />
+                                <img src={logoIso9001} alt="ISO 9001" className="h-16 w-16 object-contain" />
                                 <div className="flex flex-col">
                                     <span className="text-[11px] font-extrabold" style={{ color: NAVY }}>ISO 9001</span>
                                     <span className="text-[9px] font-medium leading-tight text-slate-600">Sistema de Gestión<br />de Calidad</span>
@@ -113,7 +125,7 @@ export default function Certificaciones() {
                             </div>
 
                             <div className="flex flex-col items-center gap-2 px-2 text-center">
-                                <img src={logoIso14001} alt="ISO 14001" className="h-12 w-12 object-contain" />
+                                <img src={logoIso14001} alt="ISO 14001" className="h-16 w-16 object-contain" />
                                 <div className="flex flex-col">
                                     <span className="text-[11px] font-extrabold" style={{ color: NAVY }}>ISO 14001</span>
                                     <span className="text-[9px] font-medium leading-tight text-slate-600">Sistema de Gestión<br />Ambiental</span>
@@ -121,7 +133,7 @@ export default function Certificaciones() {
                             </div>
 
                             <div className="flex flex-col items-center gap-2 px-2 text-center">
-                                <img src={logoIso45001} alt="ISO 45001" className="h-12 w-12 object-contain" />
+                                <img src={logoIso45001} alt="ISO 45001" className="h-16 w-16 object-contain" />
                                 <div className="flex flex-col">
                                     <span className="text-[11px] font-extrabold" style={{ color: NAVY }}>ISO 45001</span>
                                     <span className="text-[9px] font-medium leading-tight text-slate-600">Sistema de Gestión<br />de Seguridad y Salud<br />en el Trabajo</span>
@@ -129,9 +141,9 @@ export default function Certificaciones() {
                             </div>
 
                             <div className="flex flex-col items-center gap-2 px-2 text-center">
-                                <img src={logoBureauVeritas} alt="Bureau Veritas" className="h-12 w-12 object-contain" />
+                                <img src={logoBureauVeritas} alt="Bureau Veritas" className="h-16 w-16 object-contain" />
                                 <div className="flex flex-col">
-                                    <span className="text-[11px] font-extrabold" style={{ color: NAVY }}>BUREAU VERITAS</span>
+
                                     <span className="text-[9px] font-bold leading-tight text-red-600">EMPRESA<br />HOMOLOGADA</span>
                                 </div>
                             </div>
@@ -154,7 +166,7 @@ export default function Certificaciones() {
                             style={{ backgroundColor: NAVY }}
                         >
                             <img
-                                src={iconoSenace}
+                                src={cert2Image}
                                 alt="Registro SENACE Emblema"
                                 className="h-20 w-20 object-contain"
                             />
@@ -162,7 +174,7 @@ export default function Certificaciones() {
                     </div>
 
                     {/* Right Content Area */}
-                    <div className="flex flex-col justify-start pt-2">
+                    <div className="flex flex-col justify-start pt-2 text-left">
                         <h3
                             className="mb-3 text-xl font-extrabold tracking-tight text-slate-800"
                             style={{ color: NAVY }}
@@ -204,13 +216,10 @@ export default function Certificaciones() {
                                 <img
                                     src={logoSenace}
                                     alt="SENACE Logo"
-                                    className="h-16 object-contain mb-1"
+                                    className="h-36 object-contain mb-1"
                                 />
                                 <div className="leading-tight">
-                                    <p className="text-[18px] font-extrabold tracking-tight" style={{ color: NAVY }}>
-                                        senace
-                                    </p>
-                                    <p className="text-[11px] font-medium text-slate-800 mt-0.5">
+                                    <p className="text-[11px] font-medium text-slate-800 -mt-4.5">
                                         Registro
                                         <br />
                                         Autorizado
@@ -236,12 +245,16 @@ export default function Certificaciones() {
                             className="mt-6 flex min-h-[14rem] w-full flex-col items-center justify-center rounded-2xl p-4"
                             style={{ backgroundColor: NAVY }}
                         >
-                            <ShieldCheck className="h-16 w-16 text-white" strokeWidth={1.5} />
+                            <img
+                                src={cert3Image}
+                                alt="Registro SENACE Emblema"
+                                className="h-20 w-20 object-contain"
+                            />
                         </div>
                     </div>
 
                     {/* Right Content Area */}
-                    <div className="flex w-full flex-col justify-start pt-2">
+                    <div className="flex w-full flex-col justify-start pt-2 text-left">
                         <h3
                             className="mb-3 text-xl font-extrabold uppercase tracking-tight text-slate-800"
                             style={{ color: NAVY }}
@@ -296,86 +309,102 @@ export default function Certificaciones() {
 
             {/* ===== ¿POR QUÉ TMA? ===== */}
             <div
-                className="relative mx-4 my-6 flex flex-col items-start gap-4 overflow-hidden rounded-2xl px-6 py-6 sm:mx-8 sm:flex-row sm:items-center sm:gap-6 sm:px-10"
+                className="relative flex  flex-col items-start gap-4 overflow-hidden rounded-lg px-6 py-4 sm:flex-row sm:items-center sm:gap-6 lg:px-8 mx-6 my-4 "
                 style={{ backgroundColor: NAVY }}
             >
-                <div
-                    className="flex h-16 w-16 shrink-0 items-center justify-center"
-                    style={{
-                        clipPath: "polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)",
-                        border: `2px solid ${ORANGE}`,
-                    }}
-                >
-                    <Users className="h-7 w-7" style={{ color: ORANGE }} strokeWidth={1.5} />
+                {/* LEFT SECTION: Icon and Title */}
+                <div className="z-10 flex shrink-0 items-center gap-4">
+                    {/* Hexagon Outline with Users Icon */}
+                    <div className="relative flex h-14 w-14 items-center justify-center">
+                        <svg
+                            className="absolute inset-0 h-full w-full"
+                            viewBox="0 0 100 100"
+                            style={{ fill: 'none', stroke: ORANGE, strokeWidth: 4 }}
+                        >
+                            <polygon points="50,3 97,27 97,73 50,97 3,73 3,27" />
+                        </svg>
+                        <Users className="h-6 w-6" style={{ color: ORANGE }} strokeWidth={2} />
+                    </div>
+
+                    {/* Title */}
+                    <h2 className="text-xl font-bold text-white sm:text-2xl whitespace-nowrap">
+                        ¿Por qué <span style={{ color: ORANGE }}>TMA</span>?
+                    </h2>
                 </div>
 
-                <div className="hidden h-10 w-px bg-white/20 sm:block" />
+                {/* DIVIDER */}
+                <div className="z-10 hidden h-12 w-px bg-white/30 sm:block shrink-0" />
 
-                <p className="text-sm leading-relaxed text-white sm:text-[15px]">
-                    <span className="font-bold">¿Por qué TMA? </span>
-                    Soluciones integrales,{" "}
-                    <span className="font-semibold" style={{ color: ORANGE }}>
-                        experiencia
-                    </span>{" "}
-                    en tratamiento y manejo de aguas,{" "}
-                    <span className="font-semibold" style={{ color: ORANGE }}>
-                        capacidad
-                    </span>{" "}
-                    multidisciplinaria,{" "}
-                    <span className="font-semibold" style={{ color: ORANGE }}>
-                        seguridad, calidad
-                    </span>{" "}
-                    y{" "}
-                    <span className="font-semibold" style={{ color: ORANGE }}>
-                        enfoque ambiental
-                    </span>
-                    .
+                {/* RIGHT SECTION: Description */}
+                <p className="z-10 text-sm leading-relaxed text-white sm:text-[15px]">
+                    Soluciones integrales,{' '}
+                    <span style={{ color: ORANGE }}>experiencia</span> en tratamiento y manejo de aguas,{' '}
+                    <span style={{ color: ORANGE }}>capacidad</span> multidisciplinaria,{' '}
+                    <span style={{ color: ORANGE }}>seguridad, calidad</span> y{' '}
+                    <span style={{ color: ORANGE }}>enfoque ambiental</span>.
                 </p>
 
-                <Droplet
-                    className="absolute -right-2 bottom-2 h-14 w-14 text-white/10 sm:h-16 sm:w-16"
-                    strokeWidth={1}
-                />
+                {/* BACKGROUND ICON: Adjusted to sit on the far right */}
+                <div className="absolute -right-4 bottom-0 top-0 flex items-center justify-center opacity-10 pointer-events-none">
+                    {/* You can replace this Droplet with a custom SVG of the leaf/drop if you have one */}
+                    <Droplet
+                        className="h-24 w-24 text-white"
+                        strokeWidth={1}
+                    />
+                </div>
             </div>
 
             {/* ===== FOOTER / CONTACTO ===== */}
-            <div className="flex flex-col gap-8 px-6 py-8 sm:px-10 md:flex-row md:items-center md:justify-between">
-                <div>
-                    <h4 className="text-xl font-bold leading-tight text-slate-800 sm:text-2xl">
+            <div
+                className="flex flex-col gap-6 rounded-t-2xl px-6 py-8 sm:px-10 md:flex-row md:items-center md:justify-between"
+                style={{ backgroundColor: NAVY }}
+            >
+                {/* Left Section */}
+                <div className="flex flex-col gap-3">
+                    <h4 className="text-xl font-bold leading-tight text-white sm:text-2xl text-left">
                         HABLEMOS DE SU
                         <br />
-                        <span style={{ color: NAVY }}>PRÓXIMO PROYECTO</span>
+                        <span style={{ color: ORANGE }}>PRÓXIMO PROYECTO</span>
                     </h4>
-                    {/* La captura original corta este párrafo; ajusta el texto si tienes la versión completa */}
-                    <p className="mt-2 max-w-sm text-sm text-slate-500">
-                        Estamos listos para brindarle soluciones eficientes...
-                    </p>
-                    <button
-                        type="button"
-                        className="mt-4 flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                        style={{ backgroundColor: ORANGE }}
-                    >
-                        <MessageSquare className="h-4 w-4" />
-                        Solicitar propuesta técnica
-                    </button>
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                        
+                        <button
+                            type="button"
+                            className="flex items-center gap-2 rounded-md px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                            style={{ backgroundColor: ORANGE }}
+                        >
+                            <MessageSquare className="h-4 w-4" />
+                            Solicitar propuesta técnica
+                            <ChevronRight className="h-4 w-4" />
+                        </button>
+                    </div>
                 </div>
 
-                <div className="space-y-2 text-sm text-slate-600">
-                    <div className="flex items-center gap-2">
+                {/* Divider */}
+                <div className="hidden h-16 w-px shrink-0 bg-white/20 md:block" />
+
+                {/* Middle Section (Contact Info) */}
+                <div className="space-y-2 text-sm text-white">
+                    <div className="flex items-center gap-3">
                         <MapPin className="h-4 w-4 shrink-0" style={{ color: ORANGE }} />
                         <span>Jr. San Sebastián N° 353, Cajamarca</span>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-3">
                         <Phone className="h-4 w-4 shrink-0" style={{ color: ORANGE }} />
                         <span>945 741 482</span>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-3">
                         <Mail className="h-4 w-4 shrink-0" style={{ color: ORANGE }} />
                         <span>gerencia@tmaingenieros.com</span>
                     </div>
                 </div>
 
-                <img src={logoTMA} alt="TMA Ingenieros" className="h-10 object-contain md:h-12" />
+                {/* Right Section (Logo) */}
+                <img
+                    src={logoTMA}
+                    alt="TMA Ingenieros"
+                    className="h-12 shrink-0 object-contain md:h-16"
+                />
             </div>
         </section>
     );

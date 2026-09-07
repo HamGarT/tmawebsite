@@ -24,6 +24,7 @@ import nosotrosHero2 from '@/assets/images/nosotrosHero2.webp';
 import ImageNosotros1 from '@/assets/images/nosotros1.webp';
 import ImageNosotros2 from '@/assets/images/nosotros2.webp';
 import ImageNosotros3 from '@/assets/images/nosotros3.webp';
+import ImageNosotros4 from '@/assets/images/nosotros4.webp';
 import ImageSenace from '@/assets/icons/senace_icon.webp';
 import ImageDesa from '@/assets/icons/desa_icon.webp';
 
@@ -57,7 +58,7 @@ const images = {
   worker: ImageNosotros2,
   experienceHero: nosotrosHero2,
   operations: ImageNosotros3,
-  commitment: ImageInicio1,
+  commitment: ImageNosotros4,
   senace: ImageSenace,
   desa: ImageDesa
 
@@ -131,7 +132,7 @@ export default function Nosotros() {
             )}
 
             <div
-              className="absolute -left-12 top-0 hidden h-full w-24 skew-x-[-12deg] lg:block"
+              className="absolute -left-12 top-0 hidden h-full w-24 skew-x-[12deg] lg:block"
               style={{ backgroundColor: COLORS.navy }}
             />
           </div>
@@ -369,7 +370,7 @@ export default function Nosotros() {
       <section id="experiencia" className="scroll-mt-20">
 
         {/* HERO EXPERIENCIA */}
-  
+
         <div className="grid h-[340px] grid-cols-1 lg:grid-cols-[44%_56%]">
 
           {/* Texto */}
@@ -650,63 +651,65 @@ export default function Nosotros() {
       {/* =========================================================
           COMPROMISO FINAL
       ========================================================= */}
-      <section className="relative min-h-[100px] overflow-hidden">
-
+      <section className="relative min-h-[76px] overflow-hidden">
+        {/* Fondo azul */}
         <div
           className="absolute inset-0"
           style={{ backgroundColor: COLORS.navy }}
         />
 
+        {/* Imagen derecha */}
         {images.commitment && (
-          <div className="absolute right-0 top-0 hidden h-full w-[38%] lg:block">
-
+          <div className="absolute right-0 top-0 h-full w-[38%]">
             <img
               src={images.commitment}
               alt=""
               className="h-full w-full object-cover"
             />
 
+            {/* Degradado azul sobre el borde izquierdo de la imagen */}
             <div
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(90deg, #06265C 0%, rgba(6,38,92,0.2) 100%)",
+                  "linear-gradient(90deg, #06265C 0%, rgba(6,38,92,0.45) 25%, rgba(6,38,92,0) 60%)",
               }}
             />
-
           </div>
         )}
 
-        {/* Diagonal */}
-        <div className="absolute -right-12 top-0 hidden h-full w-32 skew-x-[-20deg] bg-white lg:block" />
+        {/* DIAGONAL: separa azul e imagen */}
+        <div
+          className="absolute top-[-10%] z-20 h-[120%] w-[14px] bg-white"
+          style={{
+            left: "61%",
+            transform: "skewX(-28deg)",
+          }}
+        />
 
-        <div className="relative z-10 flex min-h-[100px] items-center gap-5 px-7 sm:px-14">
-
+        {/* Contenido azul */}
+        <div className="relative z-10 flex min-h-[76px] items-center gap-4 px-7 sm:px-12">
           <Award
-            size={58}
+            size={48}
             strokeWidth={1.8}
             className="shrink-0"
             style={{ color: COLORS.yellow }}
           />
 
-          <div>
-
+          <div className="text-left">
             <h3
-              className="text-xl font-extrabold sm:text-2xl"
+              className="text-[18px] font-extrabold leading-tight sm:text-[19px]"
               style={{ color: COLORS.yellow }}
             >
               Nuestro compromiso:
             </h3>
 
-            <p className="mt-1 text-sm font-medium text-white sm:text-base">
-              Calidad, innovación y responsabilidad ambiental en cada proyecto
-              que desarrollamos.
+            <p className="mt-1 text-[13px] font-medium leading-tight text-white sm:text-[14px]">
+              Calidad, innovación y responsabilidad ambiental en cada proyecto que
+              desarrollamos.
             </p>
-
           </div>
-
         </div>
-
       </section>
 
     </main>
