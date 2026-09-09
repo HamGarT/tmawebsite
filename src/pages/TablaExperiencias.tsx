@@ -182,7 +182,7 @@ export default function TablaExperiencias() {
           HERO SECTION
       ========================================================= */}
       <section className="w-full bg-white relative">
-        <div className="grid h-[300px] grid-cols-1 lg:grid-cols-[55%_45%] w-full bg-white">
+        <div className="grid grid-cols-1 lg:h-[300px] lg:grid-cols-[55%_45%] w-full bg-white">
 
           {/* Textos (Izquierda) */}
           <div className="relative flex flex-col justify-center bg-white px-5 py-14 sm:px-12 xl:px-16 z-20">

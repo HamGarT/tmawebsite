@@ -59,7 +59,7 @@ export default function Proyectos() {
             {/* =========================================================
           SECCIÓN 1: Proyectos Destacados (Tabla a pantalla completa)
       ========================================================= */}
-            <section id="proyectos-1" className="w-full pt-6">
+            <section id="proyectos-1" className="w-full ">
 
                 {/* HERO SECCIÓN 1 */}
                 <div className="relative w-full px-5 py-10 sm:px-12 xl:px-16 flex items-center min-h-[250px] bg-white text-left">
@@ -93,20 +93,20 @@ export default function Proyectos() {
                 {/* CONTENEDOR DE LA TABLA (Con scroll horizontal si es muy pequeña la pantalla) */}
                 <div className="px-5 sm:px-12 xl:px-16 pb-12 relative z-10">
                     <div className="w-full overflow-x-auto shadow-sm rounded-lg border border-gray-200">
-                        <div className="min-w-[1050px] bg-white">
+                        <div className="min-w-[1300px] bg-white">
 
                             {/* Cabecera de Tabla */}
                             <div
                                 className="flex text-white rounded-t-lg text-sm font-bold uppercase py-4"
                                 style={{ backgroundColor: COLORS.navy }}
                             >
-                                <div className="w-16"></div>
-                                <div className="w-58"></div>
-                                <div className="w-56 flex items-center gap-2 pl-4"><Users size={16} style={{ color: COLORS.yellow }} /> CLIENTE</div>
-                                <div className="w-64 flex items-center gap-2"><FolderOpen size={16} style={{ color: COLORS.yellow }} /> PROYECTO</div>
+                                <div className="w-16 shrink-0"></div>
+                                <div className="w-[232px] shrink-0"></div>
+                                <div className="w-56 shrink-0 flex items-center gap-2 pl-4"><Users size={16} style={{ color: COLORS.yellow }} /> CLIENTE</div>
+                                <div className="w-64 shrink-0 flex items-center gap-2"><FolderOpen size={16} style={{ color: COLORS.yellow }} /> PROYECTO</div>
                                 <div className="flex-1 flex items-center gap-2"><Settings size={16} style={{ color: COLORS.yellow }} /> ALCANCE</div>
-                                <div className="w-48 flex items-center gap-2"><MapPin size={16} style={{ color: COLORS.yellow }} /> UBICACIÓN</div>
-                                <div className="w-36 flex items-center gap-2"><Calendar size={16} style={{ color: COLORS.yellow }} /> FECHA</div>
+                                <div className="w-48 shrink-0 flex items-center gap-2"><MapPin size={16} style={{ color: COLORS.yellow }} /> UBICACIÓN</div>
+                                <div className="w-36 shrink-0 flex items-center gap-2"><Calendar size={16} style={{ color: COLORS.yellow }} /> FECHA</div>
                             </div>
 
                             {/* Filas de Tabla */}
@@ -127,8 +127,8 @@ export default function Proyectos() {
                                         </div>
 
                                         {/* Imagen */}
-                                        <div className="w-58 flex justify-center shrink-0">
-                                            <div className="w-58 h-14 bg-slate-200 rounded overflow-hidden">
+                                        <div className="w-[232px] flex justify-center shrink-0">
+                                            <div className="w-[232px] h-14 bg-slate-200 rounded overflow-hidden">
                                                 <img src={item.imagen} alt={`Proyecto ${item.id}`} className="w-full h-full object-cover" />
                                             </div>
                                         </div>
@@ -262,7 +262,7 @@ export default function Proyectos() {
                         {proyectosParte2.map((item) => (
                             <div
                                 key={item.id}
-                                className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow flex overflow-hidden h-[180px]"
+                                className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow flex overflow-hidden min-h-[200px] sm:h-[180px]"
                             >
                                 {/* Imagen de la Card */}
                                 <div className="w-[45%] bg-slate-200 relative shrink-0">
@@ -293,14 +293,14 @@ export default function Proyectos() {
                                         </p>
                                     </div>
 
-                                    <div className="flex justify-between items-end mt-auto pt-2">
-                                        <div className="flex items-center gap-1.5 text-xs font-bold" style={{ color: COLORS.navy }}>
-                                            <MapPin size={14} style={{ color: COLORS.navy }} />
-                                            {item.ubicacion}
+                                    <div className="flex flex-col 2xl:flex-row 2xl:justify-between items-start 2xl:items-end mt-auto pt-2 gap-1.5 2xl:gap-0 overflow-hidden w-full">
+                                        <div className="flex items-center gap-1.5 text-xs font-bold w-full" style={{ color: COLORS.navy }}>
+                                            <MapPin size={14} className="shrink-0" style={{ color: COLORS.navy }} />
+                                            <span className="truncate">{item.ubicacion}</span>
                                         </div>
                                         <div className="flex items-center gap-1.5 text-xs font-semibold text-gray-500">
-                                            <Calendar size={14} className="text-gray-400" />
-                                            {item.fecha}
+                                            <Calendar size={14} className="shrink-0 text-gray-400" />
+                                            <span className="whitespace-nowrap">{item.fecha}</span>
                                         </div>
                                     </div>
                                 </div>

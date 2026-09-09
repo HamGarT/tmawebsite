@@ -82,7 +82,7 @@ export default function Nosotros() {
       <section id="quienes-somos">
 
         {/* HERO */}
-        <div className="grid h-[340px] grid-cols-1 lg:grid-cols-[44%_56%]">
+        <div className="grid grid-cols-1 lg:h-[340px] lg:grid-cols-[44%_56%]">
 
           {/* Texto */}
           <div
@@ -371,11 +371,11 @@ export default function Nosotros() {
 
         {/* HERO EXPERIENCIA */}
 
-        <div className="grid h-[340px] grid-cols-1 lg:grid-cols-[44%_56%]">
+        <div className="grid grid-cols-1 lg:h-[340px] lg:grid-cols-[44%_56%]">
 
           {/* Texto */}
           <div
-            className="relative flex items-center overflow-hidden px-7 sm:px-12 lg:px-16"
+            className="relative flex items-center overflow-hidden px-7 py-10 sm:px-12 sm:py-12 lg:px-16 lg:py-0"
             style={{ backgroundColor: COLORS.navy }}
           >
             <div
@@ -400,7 +400,7 @@ export default function Nosotros() {
           </div>
 
           {/* Imagen */}
-          <div className="relative h-full overflow-hidden bg-slate-200">
+          <div className="relative min-h-[280px] overflow-hidden bg-slate-200 lg:h-full">
             {images.experienceHero ? (
               <img
                 src={images.experienceHero}
@@ -494,7 +494,7 @@ export default function Nosotros() {
               title="PRINCIPALES CLIENTES Y OPERACIONES"
             />
 
-            <div className="grid grid-cols-2 gap-x-6 gap-y-2 p-5 text-sm text-left">
+            <div className="grid grid-cols-1 gap-x-6 gap-y-2 p-5 text-sm text-left sm:grid-cols-2">
 
               <ClientItem text="BVN Yumpag" />
               <ClientItem text="Minera Quinchia SAS" />
@@ -594,9 +594,9 @@ export default function Nosotros() {
             <div className="grid grid-cols-1 divide-y divide-slate-200 md:grid-cols-2 md:divide-x md:divide-y-0">
 
               {/* SENACE */}
-              <div className="flex items-center gap-6 px-8 py-7">
+              <div className="flex items-center gap-4 px-5 py-6 sm:gap-6 sm:px-8 sm:py-7">
 
-                <div className="flex h-16 min-w-32 items-center justify-center rounded-md border border-slate-100 px-4">
+                <div className="flex h-16 min-w-[100px] items-center justify-center rounded-md border border-slate-100 px-4 sm:min-w-32">
                   <img src={images.senace} alt="SENACE" className="h-full w-full object-contain" />
                 </div>
 
@@ -618,9 +618,9 @@ export default function Nosotros() {
 
 
               {/* DESA */}
-              <div className="flex items-center gap-6 px-8 py-7">
+              <div className="flex items-center gap-4 px-5 py-6 sm:gap-6 sm:px-8 sm:py-7">
 
-                <div className="flex h-16 min-w-32 items-center justify-center rounded-md border border-slate-100 px-4">
+                <div className="flex h-16 min-w-[100px] items-center justify-center rounded-md border border-slate-100 px-4 sm:min-w-32">
                   <img src={images.desa} alt="DESA-USB" className="h-full w-full object-contain" />
                 </div>
 
@@ -651,7 +651,7 @@ export default function Nosotros() {
       {/* =========================================================
           COMPROMISO FINAL
       ========================================================= */}
-      <section className="relative min-h-[76px] overflow-hidden">
+      <section className="relative min-h-[110px] overflow-hidden sm:min-h-[90px] lg:min-h-[76px]">
         {/* Fondo azul */}
         <div
           className="absolute inset-0"
@@ -688,7 +688,7 @@ export default function Nosotros() {
         />
 
         {/* Contenido azul */}
-        <div className="relative z-10 flex min-h-[76px] items-center gap-4 px-7 sm:px-12">
+        <div className="relative z-10 flex min-h-[110px] items-center gap-4 px-7 pr-[44%] sm:min-h-[90px] sm:px-12 sm:pr-12 lg:min-h-[76px]">
           <Award
             size={48}
             strokeWidth={1.8}
