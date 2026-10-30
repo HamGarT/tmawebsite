@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
         {/* Logo */}
         <div className="flex-shrink-0">
           <NavLink to="/" onClick={() => setIsOpen(false)}>
-            <img src={logo} alt="TMA Ingenieros Logo" className="h-9 sm:h-12 w-auto object-contain" />
+            <img src={logo} alt="TMA Ingenieros Logo" className="h-16 sm:h-20 md:h-24 w-auto object-contain" />
           </NavLink>
         </div>
 
@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
               key={item.name}
               to={item.path}
               className={({ isActive }) =>
-                `text-[15px] transition-colors duration-200 pb-1 border-b-[3px] ${
+                `text-base md:text-lg transition-colors duration-200 pb-1 border-b-[3px] ${
                   isActive
                     ? 'text-[#1a2352] border-[#f5a623] font-bold'
                     : 'text-[#1a2352] border-transparent font-semibold hover:text-[#f5a623]'
@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
           {/* CTA Button */}
           <a
             href="tel:+51945741482"
-            className="flex items-center gap-1.5 sm:gap-2 bg-[#0b1a4a] text-white px-3 sm:px-5 py-2 rounded-md font-semibold hover:bg-[#162763] transition-colors text-[13px] sm:text-[15px]"
+            className="flex items-center gap-1.5 sm:gap-2 bg-[#0b1a4a] text-white px-3 sm:px-5 py-2 rounded-md font-semibold hover:bg-[#162763] transition-colors text-sm sm:text-base"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@ const Navbar: React.FC = () => {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="w-4 h-4 sm:w-[18px] sm:h-[18px]"
+              className="w-5 h-5 sm:w-5 sm:h-5"
             >
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>

@@ -1,15 +1,11 @@
 import {
-    Award,
-    ShieldCheck,
     Users,
     MessageSquare,
-    MapPin,
-    Phone,
-    Mail,
     Check,
     Droplet,
     ChevronRight,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import nosotrosHero2Image from "@/assets/images/nosotrosHero2.webp";
 import logoIso9001 from "@/assets/icons/iso9001two_icon.webp";
 import logoIso14001 from "@/assets/icons/iso14001_icon.webp";
@@ -20,7 +16,7 @@ import selloDesaUsb from "@/assets/icons/desatwo_icon.webp";
 import cert1Image from "@/assets/images/cert1.webp";
 import cert2Image from "@/assets/images/cert2.webp";
 import cert3Image from "@/assets/images/cert3.webp";
-import logoTMA from "@/assets/images/logo.webp";
+import logoTMA from "@/assets/images/logov2.webp";
 
 const NAVY = "#0B1E45";
 const ORANGE = "#F5A623";
@@ -338,35 +334,19 @@ export default function Certificaciones() {
                     </h4>
                     <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                         {/* Botón expandido en móviles */}
-                        <button
-                            type="button"
+                        <Link
+                            to="/contacto?asunto=Propuesta%20t%C3%A9cnica"
                             className="flex w-full items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:w-auto sm:py-2"
                             style={{ backgroundColor: ORANGE }}
                         >
                             <MessageSquare className="h-4 w-4" />
                             Solicitar propuesta técnica
                             <ChevronRight className="h-4 w-4" />
-                        </button>
+                        </Link>
                     </div>
                 </div>
 
                 <div className="hidden h-16 w-px shrink-0 bg-white/20 md:block" />
-
-                {/* Middle Section (Contact Info) */}
-                <div className="flex flex-col items-center space-y-3 text-[13.5px] text-white sm:items-start sm:space-y-2 sm:text-sm">
-                    <div className="flex items-center gap-3">
-                        <MapPin className="h-4 w-4 shrink-0" style={{ color: ORANGE }} />
-                        <span>Jr. San Sebastián N° 353, Cajamarca</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                        <Phone className="h-4 w-4 shrink-0" style={{ color: ORANGE }} />
-                        <span>945 741 482</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                        <Mail className="h-4 w-4 shrink-0" style={{ color: ORANGE }} />
-                        <span>gerencia@tmaingenieros.com</span>
-                    </div>
-                </div>
 
                 {/* Right Section (Logo) */}
                 <img

@@ -1,5 +1,5 @@
-import React from 'react';
 
+import { Link } from 'react-router-dom';
 import ImageInicio1 from '@/assets/images/inicio1.webp';
 import serviciosImage from '@/assets/images/serviciosSlide.webp';
 
@@ -129,9 +129,12 @@ export default function Servicios() {
             <span className="text-[#f5a623] font-semibold">Nuestro compromiso: </span>
             <span className="text-white">calidad, innovación, seguridad y responsabilidad ambiental en cada proyecto.</span>
           </p>
-          <button className="bg-[#f5a623] hover:bg-[#e0961b] text-white text-sm md:text-base font-semibold py-2.5 px-8 rounded transition-colors whitespace-nowrap">
+          <Link
+            to="/contacto?asunto=Propuesta%20t%C3%A9cnica"
+            className="bg-[#f5a623] hover:bg-[#e0961b] text-white text-sm md:text-base font-semibold py-2.5 px-8 rounded transition-colors whitespace-nowrap"
+          >
             Solicitar propuesta técnica
-          </button>
+          </Link>
         </div>
       </div>
     </section>

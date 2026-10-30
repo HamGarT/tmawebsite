@@ -1,5 +1,6 @@
-import { useState, type FormEvent, type ChangeEvent } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, Navigation } from 'lucide-react';
+import { useEffect, useState, type FormEvent, type ChangeEvent } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle2 } from 'lucide-react';
 
 import ImageHero from '@/assets/images/inicio1.webp';
 
@@ -21,8 +22,8 @@ const contactInfo = [
     },
     {
         icon: Clock,
-        title: 'Horario de atención',
-        lines: ['Lun – Vie: 8:00 am – 6:00 pm', 'Sáb: 8:00 am – 1:00 pm'],
+        title: 'Disponibilidad',
+        lines: ['Atención 24/7'],
     },
 ];
 
@@ -30,8 +31,22 @@ const inputBase =
     'w-full bg-white border border-gray-300 rounded-md px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-[#f5a623] focus:ring-2 focus:ring-[#f5a623]/30 transition';
 
 export default function Contacto() {
-    const [form, setForm] = useState({ nombre: '', email: '', telefono: '', asunto: '', mensaje: '' });
+    const [searchParams] = useSearchParams();
+    const asuntoParam = searchParams.get('asunto');
+    const [form, setForm] = useState({
+        nombre: '',
+        email: '',
+        telefono: '',
+        asunto: asuntoParam ?? '',
+        mensaje: '',
+    });
     const [sent, setSent] = useState(false);
+
+    useEffect(() => {
+        if (asuntoParam) {
+            document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }, [asuntoParam]);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -85,10 +100,8 @@ export default function Contacto() {
                     ))}
                 </section>
 
-                {/* FORM + MAP */}
-                <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12 items-stretch">
-
-                    {/* FORM */}
+                {/* FORM */}
+                <section id="formulario" className="mt-12 max-w-3xl mx-auto scroll-mt-24">
                     <div className="bg-white rounded-xl p-6 md:p-8 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.1)] border border-gray-100">
                         <h2 className="text-2xl md:text-3xl font-extrabold text-[#0a1c3f] mb-1 tracking-tight">
                             Envíanos un <span className="text-[#f5a623]">mensaje</span>
@@ -146,37 +159,6 @@ export default function Contacto() {
                             </form>
                         )}
                     </div>
-
-                    {/* MAP */}
-                    <div className="flex flex-col">
-                        <div className="flex-1 bg-white rounded-xl overflow-hidden shadow-[0_2px_10px_-4px_rgba(0,0,0,0.1)] border border-gray-100 min-h-[320px] relative">
-                            <iframe
-                                title="Ubicación TMA Ingenieros - Cajamarca"
-                                src="https://www.google.com/maps?q=Jr.%20San%20Sebasti%C3%A1n%20N%C2%B0%20353%2C%20Cajamarca%2C%20Per%C3%BA&output=embed"
-                                className="w-full h-full min-h-[320px]"
-                                style={{ border: 0 }}
-                                loading="lazy"
-                                allowFullScreen
-                                referrerPolicy="no-referrer-when-downgrade"
-                            />
-                        </div>
-                        <div className="mt-4 bg-[#0a1c3f] rounded-xl p-4 flex items-center gap-3">
-                            <Navigation size={20} className="text-[#f5a623] shrink-0" />
-                            <p className="text-white text-sm">
-                                <span className="font-semibold">Sede principal:</span> Jr. San Sebastián N° 353,
-                                Urb. San Sebastián, Cajamarca, Perú.
-                            </p>
-                            <a
-                                href="https://www.google.com/maps/search/?api=1&query=Jr.+San+Sebasti%C3%A1n+N%C2%B0+353+Cajamarca+Per%C3%BA"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="ml-auto shrink-0 flex items-center gap-1 bg-[#f5a623] hover:bg-[#e0961b] text-white text-xs font-semibold px-3 py-2 rounded transition-colors whitespace-nowrap"
-                            >
-                                Cómo llegar
-                            </a>
-                        </div>
-                    </div>
-
                 </section>
 
                 {/* CTA BANNER */}

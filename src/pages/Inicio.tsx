@@ -1,7 +1,11 @@
 import {
     FileText, Play, Droplets, Leaf, Settings, HardHat, ChevronRight, MapPin, Calendar, Check,
     ClipboardList,
-    FileSearch
+    Video,
+    Cloud,
+    ShieldCheck,
+    ArrowRight,
+    Laptop
 } from 'lucide-react';
 
 import ImageHero from '@/assets/images/inicio1.webp'
@@ -12,11 +16,6 @@ import ImageCard4 from '@/assets/images/inicio5.webp'
 import ImageCard5 from '@/assets/images/inicio6.webp'
 import ImageCard6 from '@/assets/images/inicio7.webp'
 import ImageCard7 from '@/assets/images/inicio8.webp'
-import BureauVeritasLogo from '@/assets/icons/bureau_icon.webp'
-import Iso9001Logo from '@/assets/icons/iso9001_icon.webp'
-import Iso14001Logo from '@/assets/icons/iso14001_icon.webp'
-import Iso45001Logo from '@/assets/icons/iso45001_icon.webp'
-import SenaceLogo from '@/assets/icons/senace_icon.webp'
 import { NavLink } from 'react-router-dom';
 
 export default function Inicio() {
@@ -46,9 +45,12 @@ export default function Inicio() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-3 shrink-0 w-full sm:w-auto mt-2 md:mt-0">
-                        <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#fca311] hover:bg-[#e6940e] text-white text-[14px] font-bold py-3 md:py-2.5 px-4 rounded-md transition-colors shadow-sm whitespace-nowrap">
+                        <NavLink
+                            to="/contacto?asunto=Propuesta%20t%C3%A9cnica"
+                            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#fca311] hover:bg-[#e6940e] text-white text-[14px] font-bold py-3 md:py-2.5 px-4 rounded-md transition-colors shadow-sm whitespace-nowrap"
+                        >
                             <ClipboardList className="w-4 h-4" /> Solicitar propuesta técnica
-                        </button>
+                        </NavLink>
                         <NavLink to="/servicios" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#031b40]/60 md:bg-[#031b40]/40 border border-[#fca311] hover:bg-white/10 text-white text-[14px] font-bold py-3 md:py-2.5 px-4 rounded-md transition-colors whitespace-nowrap">
                             <Play className="w-4 h-4" fill="currentColor" /> Ver servicios
                         </NavLink>
@@ -56,100 +58,55 @@ export default function Inicio() {
                 </div>
             </section>
 
-            {/* 2. CERTIFICATIONS BAR */}
-            {/* 2. CERTIFICATIONS BAR (CARRUSEL MÓVIL / FIJO EN ESCRITORIO) */}
-            <div className="relative z-20 px-4 md:px-12 -mt-12 md:-mt-11 w-full">
-                
-                {/* Animación activa solo en pantallas menores a 768px (móviles) */}
-                <style>
-                    {`
-                    @media (max-width: 767px) {
-                        @keyframes scroll-mobile {
-                            0% { transform: translateX(0); }
-                            100% { transform: translateX(-50%); }
-                        }
-                        .mobile-marquee {
-                            width: max-content;
-                            animation: scroll-mobile 35s linear infinite;
-                        }
-                    }
-                    `}
-                </style>
+            {/* 2. ASISTENCIA REMOTA MINI HERO */}
+            <section className="relative z-20 px-4 md:px-12 -mt-12 md:-mt-10 w-full">
+                <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+                    <div className="px-5 md:px-8 py-6 flex flex-col xl:flex-row items-center justify-between gap-6 xl:gap-0">
 
-                {/* Contenedor principal sin padding lateral en móviles para no cortar el carrusel */}
-                <div className="bg-white py-4 rounded-xl shadow-lg border border-gray-100 overflow-hidden pointer-events-auto">
-                    
-                    <div className="flex mobile-marquee md:w-full">
-                        
-                        {/* SET 1: Visible en todos los dispositivos. En PC ocupa todo el ancho (justify-between). */}
-                        <div className="w-max md:w-full flex items-center gap-8 px-5 md:px-8 md:justify-between shrink-0">
+                        {/* Título + descripción */}
+                        <div className="flex items-center gap-4 xl:pr-6 xl:max-w-[36%] w-full xl:w-auto">
+                            <div className="shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#fca311]/15 flex items-center justify-center">
+                                <Laptop className="w-9 h-9 md:w-11 md:h-11 text-[#fca311]" strokeWidth={1.5} />
+                            </div>
+                            <div className="text-left">
+                                <h2 className="text-xl md:text-2xl font-extrabold text-[#0a1c3f] leading-tight tracking-tight">
+                                    Asistencia remota
+                                    <span className="block text-[#fca311]">de documentos de ingeniería</span>
+                                </h2>
+                                <p className="text-[12px] md:text-[13px] text-gray-600 leading-snug mt-2">
+                                    Te acompañamos en la revisión, validación y asesoría de tus planos, memorias y documentos técnicos, sin importar dónde te encuentres.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Características */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 w-full xl:w-auto xl:flex-1 gap-y-4">
                             {[
-                                { img: Iso9001Logo, title: 'ISO 9001', desc: 'Sistema de Gestión\nde Calidad' },
-                                { img: Iso14001Logo, title: 'ISO 14001', desc: 'Sistema de Gestión\nAmbiental' },
-                                { img: Iso45001Logo, title: 'ISO 45001', desc: 'Sistema de Gestión\nde Seguridad y Salud\nen el Trabajo' },
-                                { img: BureauVeritasLogo, title: 'BUREAU VERITAS', desc: 'EMPRESA\nHOMOLOGADA', descColor: 'text-[#dc2626]' },
-                                { img: SenaceLogo, title: null, desc: 'REGISTRO\nSENACE' },
-                                { icon: FileSearch, title: 'PERMISO\nDESA-USB\nN° 21-2020', desc: null },
-                            ].map((cert, i) => (
-                                <div key={i} className="flex items-center gap-3.5 shrink-0">
-                                    {cert.img ? (
-                                        <img src={cert.img} alt={cert.title || 'Certificación'} className="w-10 h-10 md:w-12 md:h-12 object-contain" />
-                                    ) : cert.icon ? (
-                                        <cert.icon size={38} strokeWidth={1.5} className="text-[#0b1a4a] md:w-[42px] md:h-[42px]" />
-                                    ) : null}
-
-                                    <div className="flex flex-col text-left justify-center">
-                                        {cert.title && (
-                                            <h4 className="font-bold text-[14px] md:text-[15px] text-[#0b1a4a] whitespace-pre-line leading-tight">
-                                                {cert.title}
-                                            </h4>
-                                        )}
-                                        {cert.desc && (
-                                            <p className={`text-[12px] md:text-[13px] font-semibold whitespace-pre-line leading-[1.2] ${cert.title ? 'mt-1' : ''} ${cert.descColor ? cert.descColor : 'text-[#0b1a4a]/80'}`}>
-                                                {cert.desc}
-                                            </p>
-                                        )}
+                                { icon: FileText, desc: 'Revisión de planos\ny memorias técnicas' },
+                                { icon: Video, desc: 'Reuniones virtuales\ncon especialistas' },
+                                { icon: Cloud, desc: 'Acceso seguro\na tu documentación' },
+                                { icon: ShieldCheck, desc: 'Respuestas rápidas\ny confiables' },
+                            ].map((item, i) => (
+                                <div key={i} className="flex flex-col items-center text-center gap-2 px-3 xl:border-l xl:border-gray-200">
+                                    <div className="w-11 h-11 md:w-12 md:h-12 rounded-full bg-gray-100 flex items-center justify-center">
+                                        <item.icon size={22} strokeWidth={1.8} className="text-[#0a1c3f]" />
                                     </div>
+                                    <p className="text-[11px] md:text-[12px] font-semibold text-gray-700 whitespace-pre-line leading-tight">
+                                        {item.desc}
+                                    </p>
                                 </div>
                             ))}
                         </div>
 
-                        {/* SET 2: Duplicado exacto. Oculto en PC (md:hidden), visible solo en móviles para el bucle. */}
-                        <div className="w-max flex items-center gap-8 px-5 md:hidden shrink-0">
-                            {[
-                                { img: Iso9001Logo, title: 'ISO 9001', desc: 'Sistema de Gestión\nde Calidad' },
-                                { img: Iso14001Logo, title: 'ISO 14001', desc: 'Sistema de Gestión\nAmbiental' },
-                                { img: Iso45001Logo, title: 'ISO 45001', desc: 'Sistema de Gestión\nde Seguridad y Salud\nen el Trabajo' },
-                                { img: BureauVeritasLogo, title: 'BUREAU VERITAS', desc: 'EMPRESA\nHOMOLOGADA', descColor: 'text-[#dc2626]' },
-                                { img: SenaceLogo, title: null, desc: 'REGISTRO\nSENACE' },
-                                { icon: FileSearch, title: 'PERMISO\nDESA-USB\nN° 21-2020', desc: null },
-                            ].map((cert, i) => (
-                                <div key={`dup-${i}`} className="flex items-center gap-3.5 shrink-0">
-                                    {cert.img ? (
-                                        <img src={cert.img} alt={cert.title || 'Certificación'} className="w-10 h-10 md:w-12 md:h-12 object-contain" />
-                                    ) : cert.icon ? (
-                                        <cert.icon size={38} strokeWidth={1.5} className="text-[#0b1a4a] md:w-[42px] md:h-[42px]" />
-                                    ) : null}
-
-                                    <div className="flex flex-col text-left justify-center">
-                                        {cert.title && (
-                                            <h4 className="font-bold text-[14px] md:text-[15px] text-[#0b1a4a] whitespace-pre-line leading-tight">
-                                                {cert.title}
-                                            </h4>
-                                        )}
-                                        {cert.desc && (
-                                            <p className={`text-[12px] md:text-[13px] font-semibold whitespace-pre-line leading-[1.2] ${cert.title ? 'mt-1' : ''} ${cert.descColor ? cert.descColor : 'text-[#0b1a4a]/80'}`}>
-                                                {cert.desc}
-                                            </p>
-                                        )}
-                                    </div>
-                                </div>
-                            ))}
+                        {/* Botón */}
+                        <div className="xl:pl-6 xl:border-l xl:border-gray-200 w-full xl:w-auto">
+                            <NavLink to="/presentacion" className="flex items-center justify-center gap-3 bg-[#fca311] hover:bg-[#e6940e] text-white text-sm md:text-base font-bold py-3.5 px-7 rounded-xl transition-colors whitespace-nowrap shadow-md">
+                                <Play size={18} fill="currentColor" /> Ver presentación <ArrowRight size={18} />
+                            </NavLink>
                         </div>
-
                     </div>
                 </div>
-            </div>
+            </section>
 
             {/* 3. MIDDLE ROW: SERVICES + WHY US */}
             <section className="px-4 md:px-12 mt-8 md:mt-8 mb-4 flex flex-col md:flex-row gap-6 md:gap-4">
@@ -299,9 +256,12 @@ export default function Inicio() {
                         <p className="text-[12px] md:text-[10px] text-gray-300">Hablemos de cómo podemos ayudarte a hacerlo realidad.</p>
                     </div>
                 </div>
-                <button className="w-full sm:w-auto flex items-center justify-center gap-1 bg-[#fca311] hover:bg-[#e6940e] text-white text-[13px] md:text-[11px] font-bold py-2.5 md:py-1.5 px-4 rounded transition-colors whitespace-nowrap">
+                <NavLink
+                    to="/contacto?asunto=Propuesta%20t%C3%A9cnica"
+                    className="w-full sm:w-auto flex items-center justify-center gap-1 bg-[#fca311] hover:bg-[#e6940e] text-white text-[13px] md:text-[11px] font-bold py-2.5 md:py-1.5 px-4 rounded transition-colors whitespace-nowrap"
+                >
                     Solicitar propuesta técnica <ChevronRight size={16} className="md:w-[14px] md:h-[14px]" />
-                </button>
+                </NavLink>
             </section>
 
         </div>

@@ -30,20 +30,6 @@ import ImageDesa from '@/assets/icons/desa_icon.webp';
 
 
 
-interface NosotrosImages {
-  hero?: string;
-  project1?: string;
-  project2?: string;
-  worker?: string;
-  experienceHero?: string;
-  operations?: string;
-  commitment?: string;
-}
-
-interface NosotrosProps {
-  images?: NosotrosImages;
-}
-
 const COLORS = {
   navy: "#06265C",
   navyDark: "#031D4A",
@@ -497,7 +483,7 @@ export default function Nosotros() {
             <div className="grid grid-cols-1 gap-x-6 gap-y-2 p-5 text-sm text-left sm:grid-cols-2">
 
               <ClientItem text="BVN Yumpag" />
-              <ClientItem text="Minera Quinchia SAS" />
+              <ClientItem text="Minera Quimchia (SAS Colombia)" />
 
               <ClientItem text="BVN Orcopampa" />
               <ClientItem text="Ferreyros S.A." />
@@ -510,6 +496,7 @@ export default function Nosotros() {
 
               <ClientItem text="Huanza" />
               <ClientItem text="Minera Yanahuincha" />
+              <ClientItem text="Minera Veta Dorada" />
 
             </div>
 
