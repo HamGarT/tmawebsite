@@ -1,8 +1,11 @@
 import { useEffect, useState, type FormEvent, type ChangeEvent } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle2 } from 'lucide-react';
+import { AlertCircle, MapPin, Phone, Mail, Clock, Send, CheckCircle2, Loader2 } from 'lucide-react';
 
 import ImageHero from '@/assets/images/inicio1.webp';
+
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+const CONTACT_EMAIL = 'proyectos@tmaingenieros.com';
 
 const contactInfo = [
     {
@@ -41,6 +44,8 @@ export default function Contacto() {
         mensaje: '',
     });
     const [sent, setSent] = useState(false);
+    const [sending, setSending] = useState(false);
+    const [error, setError] = useState('');
 
     useEffect(() => {
         if (asuntoParam) {
@@ -52,9 +57,45 @@ export default function Contacto() {
         setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setSent(true);
+        setError('');
+
+        if (!WEB3FORMS_ACCESS_KEY) {
+            setError(`El formulario no está configurado. Escríbenos a ${CONTACT_EMAIL}.`);
+            return;
+        }
+
+        setSending(true);
+
+        try {
+            const formData = new FormData();
+            formData.append('access_key', WEB3FORMS_ACCESS_KEY);
+            formData.append('name', form.nombre);
+            formData.append('email', form.email);
+            formData.append('phone', form.telefono);
+            formData.append('subject', form.asunto);
+            formData.append('message', form.mensaje);
+            formData.append('from_name', 'TMA Ingenieros');
+            formData.append('replyto', form.email);
+
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData,
+            });
+            const data = await response.json();
+
+            if (!response.ok || !data.success) {
+                throw new Error(data.message || 'No se pudo enviar el mensaje.');
+            }
+
+            setForm({ nombre: '', email: '', telefono: '', asunto: '', mensaje: '' });
+            setSent(true);
+        } catch {
+            setError(`No pudimos enviar el mensaje. Inténtalo nuevamente o escríbenos a ${CONTACT_EMAIL}.`);
+        } finally {
+            setSending(false);
+        }
     };
 
     return (
@@ -118,7 +159,7 @@ export default function Contacto() {
                                     Gracias por contactarte con TMA Ingenieros. Te responderemos muy pronto.
                                 </p>
                                 <button
-                                    onClick={() => { setSent(false); setForm({ nombre: '', email: '', telefono: '', asunto: '', mensaje: '' }); }}
+                                    onClick={() => { setSent(false); setError(''); setForm({ nombre: '', email: '', telefono: '', asunto: '', mensaje: '' }); }}
                                     className="mt-6 bg-[#f5a623] hover:bg-[#e0961b] text-white text-sm font-semibold py-2.5 px-6 rounded transition-colors"
                                 >
                                     Enviar otro mensaje
@@ -150,11 +191,29 @@ export default function Contacto() {
                                     <label className="text-[13px] font-semibold text-[#0a1c3f] mb-1.5">Mensaje *</label>
                                     <textarea name="mensaje" value={form.mensaje} onChange={handleChange} required rows={5} placeholder="Cuéntanos sobre tu proyecto o consulta..." className={`${inputBase} resize-none`} />
                                 </div>
+                                {error && (
+                                    <div
+                                        role="alert"
+                                        className="flex items-start gap-2 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-left text-[13px] text-red-700"
+                                    >
+                                        <AlertCircle size={16} className="mt-0.5 shrink-0" />
+                                        <span>{error}</span>
+                                    </div>
+                                )}
                                 <button
                                     type="submit"
-                                    className="flex items-center justify-center gap-2 bg-[#f5a623] hover:bg-[#e0961b] text-white text-sm font-semibold py-3 px-6 rounded-md transition-colors shadow-sm"
+                                    disabled={sending}
+                                    className="flex items-center justify-center gap-2 bg-[#f5a623] hover:bg-[#e0961b] text-white text-sm font-semibold py-3 px-6 rounded-md transition-colors shadow-sm disabled:cursor-not-allowed disabled:opacity-70"
                                 >
-                                    <Send size={16} /> Enviar mensaje
+                                    {sending ? (
+                                        <>
+                                            <Loader2 size={16} className="animate-spin" /> Enviando...
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Send size={16} /> Enviar mensaje
+                                        </>
+                                    )}
                                 </button>
                             </form>
                         )}
