@@ -17,6 +17,7 @@ import ImageCard5 from '@/assets/images/inicio6.webp'
 import ImageCard6 from '@/assets/images/inicio7.webp'
 import ImageCard7 from '@/assets/images/inicio8.webp'
 import { NavLink } from 'react-router-dom';
+import ProposalLink from '@/components/common/ProposalLink';
 
 export default function Inicio() {
     return (
@@ -45,12 +46,11 @@ export default function Inicio() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-3 shrink-0 w-full sm:w-auto mt-2 md:mt-0">
-                        <NavLink
-                            to="/contacto?asunto=Propuesta%20t%C3%A9cnica"
+                        <ProposalLink
                             className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#fca311] hover:bg-[#e6940e] text-white text-[14px] font-bold py-3 md:py-2.5 px-4 rounded-md transition-colors shadow-sm whitespace-nowrap"
                         >
                             <ClipboardList className="w-4 h-4" /> Solicitar propuesta técnica
-                        </NavLink>
+                        </ProposalLink>
                         <NavLink to="/servicios" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#031b40]/60 md:bg-[#031b40]/40 border border-[#fca311] hover:bg-white/10 text-white text-[14px] font-bold py-3 md:py-2.5 px-4 rounded-md transition-colors whitespace-nowrap">
                             <Play className="w-4 h-4" fill="currentColor" /> Ver servicios
                         </NavLink>
@@ -256,12 +256,11 @@ export default function Inicio() {
                         <p className="text-[12px] md:text-[10px] text-gray-300">Hablemos de cómo podemos ayudarte a hacerlo realidad.</p>
                     </div>
                 </div>
-                <NavLink
-                    to="/contacto?asunto=Propuesta%20t%C3%A9cnica"
+                <ProposalLink
                     className="w-full sm:w-auto flex items-center justify-center gap-1 bg-[#fca311] hover:bg-[#e6940e] text-white text-[13px] md:text-[11px] font-bold py-2.5 md:py-1.5 px-4 rounded transition-colors whitespace-nowrap"
                 >
                     Solicitar propuesta técnica <ChevronRight size={16} className="md:w-[14px] md:h-[14px]" />
-                </NavLink>
+                </ProposalLink>
             </section>
 
         </div>

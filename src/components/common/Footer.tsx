@@ -21,7 +21,7 @@ const TikTokIcon = ({ size = 18 }: { size?: number }) => (
 
 const contactItems = [
     { icon: MapPin, label: 'Dirección', value: 'Jr. San Sebastián N° 353, Cajamarca' },
-    { icon: Phone, label: 'Teléfono', value: '945 741 482' },
+    { icon: Phone, label: 'Teléfono', value: '945 741 482 / 939 826 958' },
     { icon: Mail, label: 'Correo', value: 'gerencia@tmaingenieros.com\nproyectos@tmaingenieros.com' },
     { icon: Globe, label: 'Web', value: 'www.tmaingenieros.com' },
     { icon: IdCard, label: 'RUC', value: '20570528999' },
@@ -55,7 +55,7 @@ const Footer = () => {
                             <img src={midLogo} alt="Logo TMA" className="h-9 w-auto object-contain" />
                             <h2 className="text-3xl font-extrabold tracking-wide">TMA</h2>
                         </div>
-                        <p className="text-xs tracking-widest text-white/70 mt-1 whitespace-nowrap">
+                        <p className="mt-1 max-w-[16rem] text-[10px] leading-relaxed tracking-[0.14em] text-white/70 sm:max-w-none sm:text-xs sm:tracking-widest">
                             INGENIERÍA&nbsp;|&nbsp;CONSTRUCCIÓN&nbsp;|&nbsp;GESTIÓN&nbsp;AMBIENTAL
                         </p>
                     </div>
@@ -84,12 +84,12 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="mt-5 flex flex-col gap-3 border-t border-white/15 pt-4 sm:flex-row sm:items-center sm:justify-between">
+                <div className="mt-5 flex flex-col items-center gap-3 border-t border-white/15 pt-4 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
                     <p className="text-xs text-gray-400">
                         © {new Date().getFullYear()} TMA Ingenieros S.A.C. Todos los derechos reservados.
                     </p>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-center gap-3 sm:justify-start">
                         <span className="text-xs font-bold uppercase tracking-[0.18em] text-white/60">
                             Síguenos
                         </span>

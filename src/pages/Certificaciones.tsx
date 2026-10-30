@@ -5,8 +5,8 @@ import {
     Droplet,
     ChevronRight,
 } from "lucide-react";
-import { Link } from "react-router-dom";
 import nosotrosHero2Image from "@/assets/images/nosotrosHero2.webp";
+import ProposalLink from "@/components/common/ProposalLink";
 import logoIso9001 from "@/assets/icons/iso9001two_icon.webp";
 import logoIso14001 from "@/assets/icons/iso14001_icon.webp";
 import logoIso45001 from "@/assets/icons/iso45001_icon.webp";
@@ -334,15 +334,14 @@ export default function Certificaciones() {
                     </h4>
                     <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                         {/* Botón expandido en móviles */}
-                        <Link
-                            to="/contacto?asunto=Propuesta%20t%C3%A9cnica"
+                        <ProposalLink
                             className="flex w-full items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:w-auto sm:py-2"
                             style={{ backgroundColor: ORANGE }}
                         >
                             <MessageSquare className="h-4 w-4" />
                             Solicitar propuesta técnica
                             <ChevronRight className="h-4 w-4" />
-                        </Link>
+                        </ProposalLink>
                     </div>
                 </div>
 

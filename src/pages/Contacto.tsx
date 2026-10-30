@@ -1,10 +1,13 @@
 import { useEffect, useState, type FormEvent, type ChangeEvent } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { AlertCircle, MapPin, Phone, Mail, Clock, Send, CheckCircle2, Loader2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 import ImageHero from '@/assets/images/inicio1.webp';
 
-const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 const CONTACT_EMAIL = 'proyectos@tmaingenieros.com';
 
 const contactInfo = [
@@ -16,7 +19,7 @@ const contactInfo = [
     {
         icon: Phone,
         title: 'Teléfono',
-        lines: ['945 741 482 / 948 104 850', '076-268599'],
+        lines: ['945 741 482 / 939 826 958'],
     },
     {
         icon: Mail,
@@ -61,7 +64,7 @@ export default function Contacto() {
         e.preventDefault();
         setError('');
 
-        if (!WEB3FORMS_ACCESS_KEY) {
+        if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
             setError(`El formulario no está configurado. Escríbenos a ${CONTACT_EMAIL}.`);
             return;
         }
@@ -69,30 +72,34 @@ export default function Contacto() {
         setSending(true);
 
         try {
-            const formData = new FormData();
-            formData.append('access_key', WEB3FORMS_ACCESS_KEY);
-            formData.append('name', form.nombre);
-            formData.append('email', form.email);
-            formData.append('phone', form.telefono);
-            formData.append('subject', form.asunto);
-            formData.append('message', form.mensaje);
-            formData.append('from_name', 'TMA Ingenieros');
-            formData.append('replyto', form.email);
-
-            const response = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: formData,
-            });
-            const data = await response.json();
-
-            if (!response.ok || !data.success) {
-                throw new Error(data.message || 'No se pudo enviar el mensaje.');
-            }
+            await emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_ID,
+                {
+                    from_name: form.nombre,
+                    from_email: form.email,
+                    reply_to: form.email,
+                    phone: form.telefono,
+                    subject: form.asunto,
+                    message: form.mensaje,
+                    to_email: CONTACT_EMAIL,
+                },
+                { publicKey: EMAILJS_PUBLIC_KEY }
+            );
 
             setForm({ nombre: '', email: '', telefono: '', asunto: '', mensaje: '' });
             setSent(true);
-        } catch {
-            setError(`No pudimos enviar el mensaje. Inténtalo nuevamente o escríbenos a ${CONTACT_EMAIL}.`);
+        } catch (err) {
+            console.error('EmailJS error:', err);
+            const detail =
+                typeof err === 'object' && err !== null && 'text' in err
+                    ? String((err as { text: unknown }).text)
+                    : err instanceof Error
+                        ? err.message
+                        : '';
+            setError(
+                `No pudimos enviar el mensaje${detail ? ` (${detail})` : ''}. Inténtalo nuevamente o escríbenos a ${CONTACT_EMAIL}.`
+            );
         } finally {
             setSending(false);
         }

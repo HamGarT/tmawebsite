@@ -16,13 +16,13 @@ const Navbar: React.FC = () => {
 
   return (
     // Agregamos 'relative' y 'z-50' para que el menú móvil se despliegue por encima del contenido
-    <nav className="w-full bg-white px-4 md:px-8 py-3 md:py-4 shadow-sm font-sans relative z-50">
-      <div className="flex items-center justify-between">
+    <nav className="w-full bg-white px-3 sm:px-4 md:px-8 py-2.5 md:py-4 shadow-sm font-sans relative z-50">
+      <div className="flex items-center justify-between gap-2">
         
         {/* Logo */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 min-w-0">
           <NavLink to="/" onClick={() => setIsOpen(false)}>
-            <img src={logo} alt="TMA Ingenieros Logo" className="h-16 sm:h-20 md:h-24 w-auto object-contain" />
+            <img src={logo} alt="TMA Ingenieros Logo" className="h-9 sm:h-14 md:h-20 w-auto object-contain" />
           </NavLink>
         </div>
 
@@ -46,12 +46,12 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Contenedor Derecho: Botón CTA + Botón Hamburguesa */}
-        <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-4 flex-shrink-0">
           
           {/* CTA Button */}
           <a
             href="tel:+51945741482"
-            className="flex items-center gap-1.5 sm:gap-2 bg-[#0b1a4a] text-white px-3 sm:px-5 py-2 rounded-md font-semibold hover:bg-[#162763] transition-colors text-sm sm:text-base"
+            className="flex items-center gap-1.5 sm:gap-2 bg-[#0b1a4a] text-white px-2.5 sm:px-5 py-1.5 sm:py-2 rounded-md font-semibold hover:bg-[#162763] transition-colors text-xs sm:text-base whitespace-nowrap"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@ const Navbar: React.FC = () => {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="w-5 h-5 sm:w-5 sm:h-5"
+              className="w-4 h-4 sm:w-5 sm:h-5"
             >
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
@@ -72,7 +72,7 @@ const Navbar: React.FC = () => {
 
           {/* Menú Hamburguesa (Solo Móviles) */}
           <button
-            className="md:hidden flex items-center justify-center p-2 text-[#0b1a4a] focus:outline-none"
+            className="md:hidden flex items-center justify-center p-1.5 text-[#0b1a4a] focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
           >
