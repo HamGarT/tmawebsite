@@ -20,8 +20,8 @@ const TikTokIcon = ({ size = 18 }: { size?: number }) => (
 );
 
 const contactItems = [
-    { icon: MapPin, label: 'Dirección', value: 'Jr. San Sebastián N° 353, Cajamarca' },
-    { icon: Phone, label: 'Teléfono', value: '945 741 482 / 939 826 958' },
+    { icon: MapPin, label: 'Dirección', value: 'Jr. San Sebastián N° 353, Cajamarca\nAv. Brasil 315 A, Alto Selva Alegre, Arequipa' },
+    { icon: Phone, label: 'Teléfono', value: '939 826 958' },
     { icon: Mail, label: 'Correo', value: 'gerencia@tmaingenieros.com\nproyectos@tmaingenieros.com' },
     { icon: Globe, label: 'Web', value: 'www.tmaingenieros.com' },
     { icon: IdCard, label: 'RUC', value: '20570528999' },

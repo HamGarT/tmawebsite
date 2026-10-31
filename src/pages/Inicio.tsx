@@ -82,7 +82,7 @@ export default function Inicio() {
                         {/* Características */}
                         <div className="grid grid-cols-2 md:grid-cols-4 w-full xl:w-auto xl:flex-1 gap-y-4">
                             {[
-                                { icon: FileText, desc: 'Revisión de planos\ny memorias técnicas' },
+                                { icon: FileText, desc: 'Revisión, Elaboración de planos\ny documentos técnicos' },
                                 { icon: Video, desc: 'Reuniones virtuales\ncon especialistas' },
                                 { icon: Cloud, desc: 'Acceso seguro\na tu documentación' },
                                 { icon: ShieldCheck, desc: 'Respuestas rápidas\ny confiables' },
@@ -91,7 +91,7 @@ export default function Inicio() {
                                     <div className="w-11 h-11 md:w-12 md:h-12 rounded-full bg-gray-100 flex items-center justify-center">
                                         <item.icon size={22} strokeWidth={1.8} className="text-[#0a1c3f]" />
                                     </div>
-                                    <p className="text-[11px] md:text-[12px] font-semibold text-gray-700 whitespace-pre-line leading-tight">
+                                    <p className="text-[16px] md:text-[18px] font-semibold text-gray-700 whitespace-pre-line leading-tight">
                                         {item.desc}
                                     </p>
                                 </div>
@@ -113,7 +113,7 @@ export default function Inicio() {
                 <div className="w-full md:w-[65%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-3 md:h-[300px]">
                     {[
                         {
-                            title: 'Tratamiento y manejo de aguas',
+                            title: 'Tratamiento, manejo de aguas y relaves',
                             Icon: Droplets,
                             description: 'Diseño, construcción y operación de sistemas de tratamiento de aguas para mineria e industria.',
                             image: ImageCard1,

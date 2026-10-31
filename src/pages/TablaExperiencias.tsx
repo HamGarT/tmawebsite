@@ -230,7 +230,7 @@ export default function TablaExperiencias() {
       ========================================================= */}
       <section className="w-full px-5 sm:px-12 xl:px-16 pb-20 pt-6">
         <div className="w-full overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
-          <div className="min-w-[1100px] bg-white">
+          <div className="min-w-[950px] bg-white">
 
             {/* Cabecera de la Tabla */}
             <div
@@ -241,7 +241,6 @@ export default function TablaExperiencias() {
               <div className="w-56 shrink-0">Cliente</div>
               <div className="w-64 shrink-0">Proyecto</div>
               <div className="flex-1 shrink-0">Alcance / servicio realizado</div>
-              <div className="w-32 shrink-0">Sustento</div>
             </div>
 
             {/* Cuerpo de la Tabla */}
@@ -271,11 +270,6 @@ export default function TablaExperiencias() {
                   {/* Alcance */}
                   <div className="flex-1 shrink-0 text-slate-600 font-medium pr-4">
                     {item.alcance}
-                  </div>
-
-                  {/* Sustento */}
-                  <div className="w-32 shrink-0 text-slate-500 font-medium">
-                    {item.sustento}
                   </div>
                 </div>
               ))}

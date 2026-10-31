@@ -172,9 +172,32 @@ export default function Certificaciones() {
                             REGISTRO SENACE
                         </h3>
 
-                        <p className="mb-5 max-w-2xl pr-0 text-[13px] font-medium leading-relaxed text-slate-700 sm:mb-6 pb-4 sm:pr-4 md:text-[12px] xl:text-[14px] ">
-                            Registro para el desarrollo de servicios y estudios ambientales vinculados a los subsectores minería, electricidad e hidrocarburos.
+                        <p className="mb-4 max-w-2xl pr-0 text-[13px] font-medium leading-relaxed text-slate-700 sm:pr-4 md:text-[12px] xl:text-[14px]">
+                            TMA INGENIEROS S.A.C. está inscrita en el registro del SENACE para el desarrollo de servicios y estudios ambientales en tres subsectores:
                         </p>
+
+                        <div className="mb-5 grid w-full grid-cols-1 gap-2 sm:grid-cols-3">
+                            {[
+                                { sector: "Electricidad", code: "1409-2026-ENE" },
+                                { sector: "Hidrocarburos", code: "1409-2026-ENE" },
+                                { sector: "Minería", code: "1409-2026-MIN" },
+                            ].map(({ sector, code }) => (
+                                <div
+                                    key={sector}
+                                    className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-left"
+                                >
+                                    <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                                        {sector}
+                                    </p>
+                                    <p
+                                        className="text-[12px] font-extrabold leading-tight sm:text-[12.5px]"
+                                        style={{ color: NAVY }}
+                                    >
+                                        {code}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
 
                         <div className="flex flex-col items-start gap-5 xl:flex-row xl:items-start xl:justify-between w-full">
                             <ul className="flex-1 space-y-3 pr-0 sm:space-y-3.5 sm:pr-2 xl:pr-4 w-full">

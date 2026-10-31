@@ -9,17 +9,33 @@ const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 const CONTACT_EMAIL = 'proyectos@tmaingenieros.com';
+const WHATSAPP_NUMBER = '51945741482';
+
+const buildWhatsAppUrl = (form: { nombre: string; email: string; telefono: string; asunto: string; mensaje: string }) => {
+    const text = [
+        'Hola, quiero solicitar una propuesta técnica.',
+        `Nombre: ${form.nombre}`,
+        `Correo: ${form.email}`,
+        form.telefono ? `Teléfono: ${form.telefono}` : '',
+        `Asunto: ${form.asunto}`,
+        `Mensaje: ${form.mensaje}`,
+    ]
+        .filter(Boolean)
+        .join('\n');
+
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+};
 
 const contactInfo = [
     {
         icon: MapPin,
         title: 'Dirección',
-        lines: ['Jr. San Sebastián N° 353,', 'Cajamarca, Perú'],
+        lines: ['Jr. San Sebastián N° 353, Cajamarca, Perú', 'Av. Brasil 315 A, distrito de Alto Selva Alegre, Arequipa'],
     },
     {
         icon: Phone,
         title: 'Teléfono',
-        lines: ['945 741 482 / 939 826 958'],
+        lines: ['939 826 958'],
     },
     {
         icon: Mail,
@@ -64,8 +80,11 @@ export default function Contacto() {
         e.preventDefault();
         setError('');
 
+        window.open(buildWhatsAppUrl(form), '_blank', 'noopener,noreferrer');
+
         if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
-            setError(`El formulario no está configurado. Escríbenos a ${CONTACT_EMAIL}.`);
+            setForm({ nombre: '', email: '', telefono: '', asunto: '', mensaje: '' });
+            setSent(true);
             return;
         }
 
@@ -234,10 +253,10 @@ export default function Contacto() {
                         <span className="text-white">Hablemos de cómo podemos ayudarte a hacerlo realidad.</span>
                     </p>
                     <a
-                        href="tel:+51945741482"
+                        href="tel:+51939826958"
                         className="flex items-center gap-2 bg-[#f5a623] hover:bg-[#e0961b] text-white text-sm md:text-base font-semibold py-2.5 px-8 rounded transition-colors whitespace-nowrap"
                     >
-                        <Phone size={16} /> 945 741 482
+                        <Phone size={16} /> 939 826 958
                     </a>
                 </section>
 

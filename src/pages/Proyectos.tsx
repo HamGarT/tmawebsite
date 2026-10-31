@@ -307,40 +307,6 @@ export default function Proyectos() {
                         ))}
                     </div>
 
-                    {/* Footer Sección 2 */}
-                    <NavLink to="/proyectos/experiencias" className="mt-8 bg-white rounded-lg p-5 flex flex-col md:flex-row items-center border border-gray-200 shadow-sm text-left" >
-                        <div className="flex items-center flex-1 mb-4 md:mb-0">
-                            <div
-                                className="w-12 h-12 rounded-full border-[2.5px] flex items-center justify-center shrink-0 mr-4"
-                                style={{ borderColor: COLORS.navy, color: COLORS.navy }}
-                            >
-                                <Droplet size={24} />
-                            </div>
-                            <div className="border-l-2 pl-4" style={{ borderColor: COLORS.yellow }}>
-                                <p className="font-bold text-[15px] sm:text-base leading-snug" style={{ color: COLORS.navy }}>
-                                    Experiencia adicional en Huanza, Minera Quinchía, La Arena
-                                    <br className="hidden sm:block" />
-                                    y proyectos complementarios de Yumpag y Julcani.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="flex shrink-0">
-                            <ChevronRight size={36} className="opacity-20 -mr-5 text-gray-400 animate-chevron-wave" style={{ animationDelay: '0ms' }} />
-                            <ChevronRight size={36} className="opacity-40 -mr-5 text-gray-400 animate-chevron-wave" style={{ animationDelay: '150ms' }} />
-                            <ChevronRight size={36} className="opacity-70 -mr-5 text-gray-400 animate-chevron-wave" style={{ animationDelay: '300ms' }} />
-                            <ChevronRight size={36} className="animate-chevron-wave" style={{ color: COLORS.yellow, animationDelay: '450ms' }} />
-                        </div>
-
-                        <style>{`
-    @keyframes chevron-wave {
-        0%, 100% { opacity: 0.2; transform: translateX(0); }
-        50% { opacity: 1; transform: translateX(4px); }
-    }
-    .animate-chevron-wave {
-        animation: chevron-wave 1.2s ease-in-out infinite;
-    }
-`}</style>
-                    </NavLink>
                 </div>
             </section>
 
