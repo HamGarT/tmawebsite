@@ -1,9 +1,6 @@
 import {
     FileText, Play, Droplets, Leaf, Settings, HardHat, ChevronRight, MapPin, Calendar, Check,
     ClipboardList,
-    Video,
-    Cloud,
-    ShieldCheck,
     ArrowRight,
     Laptop
 } from 'lucide-react';
@@ -16,6 +13,10 @@ import ImageCard4 from '@/assets/images/inicio5.webp'
 import ImageCard5 from '@/assets/images/inicio6.webp'
 import ImageCard6 from '@/assets/images/inicio7.webp'
 import ImageCard7 from '@/assets/images/inicio8.webp'
+import RemoteReviewIcon from '@/assets/icons/remote-review.png'
+import RemoteMeetingIcon from '@/assets/icons/remote-meeting.png'
+import SecureDocumentsIcon from '@/assets/icons/secure-documents.png'
+import QuickResponseIcon from '@/assets/icons/quick-response.png'
 import { NavLink } from 'react-router-dom';
 import ProposalLink from '@/components/common/ProposalLink';
 
@@ -82,14 +83,14 @@ export default function Inicio() {
                         {/* Características */}
                         <div className="grid grid-cols-2 md:grid-cols-4 w-full xl:w-auto xl:flex-1 gap-y-4">
                             {[
-                                { icon: FileText, desc: 'Revisión, Elaboración de planos\ny documentos técnicos' },
-                                { icon: Video, desc: 'Reuniones virtuales\ncon especialistas' },
-                                { icon: Cloud, desc: 'Acceso seguro\na tu documentación' },
-                                { icon: ShieldCheck, desc: 'Respuestas rápidas\ny confiables' },
+                                { image: RemoteReviewIcon, desc: 'Revisión, Elaboración de planos\ny documentos técnicos' },
+                                { image: RemoteMeetingIcon, desc: 'Reuniones virtuales\ncon especialistas' },
+                                { image: SecureDocumentsIcon, desc: 'Acceso seguro\na tu documentación' },
+                                { image: QuickResponseIcon, desc: 'Respuestas rápidas\ny confiables' },
                             ].map((item, i) => (
                                 <div key={i} className="flex flex-col items-center text-center gap-2 px-3 xl:border-l xl:border-gray-200">
-                                    <div className="w-11 h-11 md:w-12 md:h-12 rounded-full bg-gray-100 flex items-center justify-center">
-                                        <item.icon size={22} strokeWidth={1.8} className="text-[#0a1c3f]" />
+                                    <div className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center">
+                                        <img src={item.image} alt="" aria-hidden="true" className="w-full h-full object-contain drop-shadow-md" />
                                     </div>
                                     <p className="text-[16px] md:text-[18px] font-semibold text-gray-700 whitespace-pre-line leading-tight">
                                         {item.desc}
