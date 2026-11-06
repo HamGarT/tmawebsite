@@ -1,14 +1,9 @@
 import { useEffect, useState, type FormEvent, type ChangeEvent } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { AlertCircle, MapPin, Phone, Mail, Clock, Send, CheckCircle2, Loader2 } from 'lucide-react';
-import emailjs from '@emailjs/browser';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle2 } from 'lucide-react';
 
 import ImageHero from '@/assets/images/inicio1.webp';
 
-const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-const CONTACT_EMAIL = 'proyectos@tmaingenieros.com';
 const WHATSAPP_NUMBER = '51939826958';
 
 const buildWhatsAppUrl = (form: { nombre: string; email: string; telefono: string; asunto: string; mensaje: string }) => {
@@ -64,8 +59,6 @@ export default function Contacto() {
         mensaje: '',
     });
     const [sent, setSent] = useState(false);
-    const [sending, setSending] = useState(false);
-    const [error, setError] = useState('');
 
     useEffect(() => {
         if (asuntoParam || location.hash === '#formulario') {
@@ -77,52 +70,12 @@ export default function Contacto() {
         setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
-    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setError('');
 
         window.open(buildWhatsAppUrl(form), '_blank', 'noopener,noreferrer');
-
-        if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
-            setForm({ nombre: '', email: '', telefono: '', asunto: '', mensaje: '' });
-            setSent(true);
-            return;
-        }
-
-        setSending(true);
-
-        try {
-            await emailjs.send(
-                EMAILJS_SERVICE_ID,
-                EMAILJS_TEMPLATE_ID,
-                {
-                    from_name: form.nombre,
-                    from_email: form.email,
-                    reply_to: form.email,
-                    phone: form.telefono,
-                    subject: form.asunto,
-                    message: form.mensaje,
-                    to_email: CONTACT_EMAIL,
-                },
-                { publicKey: EMAILJS_PUBLIC_KEY }
-            );
-
-            setForm({ nombre: '', email: '', telefono: '', asunto: '', mensaje: '' });
-            setSent(true);
-        } catch (err) {
-            console.error('EmailJS error:', err);
-            const detail =
-                typeof err === 'object' && err !== null && 'text' in err
-                    ? String((err as { text: unknown }).text)
-                    : err instanceof Error
-                        ? err.message
-                        : '';
-            setError(
-                `No pudimos enviar el mensaje${detail ? ` (${detail})` : ''}. Inténtalo nuevamente o escríbenos a ${CONTACT_EMAIL}.`
-            );
-        } finally {
-            setSending(false);
-        }
+        setForm({ nombre: '', email: '', telefono: '', asunto: '', mensaje: '' });
+        setSent(true);
     };
 
     return (
@@ -186,7 +139,7 @@ export default function Contacto() {
                                     Gracias por contactarte con TMA Ingenieros. Te responderemos muy pronto.
                                 </p>
                                 <button
-                                    onClick={() => { setSent(false); setError(''); setForm({ nombre: '', email: '', telefono: '', asunto: '', mensaje: '' }); }}
+                                    onClick={() => { setSent(false); setForm({ nombre: '', email: '', telefono: '', asunto: '', mensaje: '' }); }}
                                     className="mt-6 bg-[#f5a623] hover:bg-[#e0961b] text-white text-sm font-semibold py-2.5 px-6 rounded transition-colors"
                                 >
                                     Enviar otro mensaje
@@ -218,29 +171,11 @@ export default function Contacto() {
                                     <label className="text-[13px] font-semibold text-[#0a1c3f] mb-1.5">Mensaje *</label>
                                     <textarea name="mensaje" value={form.mensaje} onChange={handleChange} required rows={5} placeholder="Cuéntanos sobre tu proyecto o consulta..." className={`${inputBase} resize-none`} />
                                 </div>
-                                {error && (
-                                    <div
-                                        role="alert"
-                                        className="flex items-start gap-2 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-left text-[13px] text-red-700"
-                                    >
-                                        <AlertCircle size={16} className="mt-0.5 shrink-0" />
-                                        <span>{error}</span>
-                                    </div>
-                                )}
                                 <button
                                     type="submit"
-                                    disabled={sending}
-                                    className="flex items-center justify-center gap-2 bg-[#f5a623] hover:bg-[#e0961b] text-white text-sm font-semibold py-3 px-6 rounded-md transition-colors shadow-sm disabled:cursor-not-allowed disabled:opacity-70"
+                                    className="flex items-center justify-center gap-2 bg-[#f5a623] hover:bg-[#e0961b] text-white text-sm font-semibold py-3 px-6 rounded-md transition-colors shadow-sm"
                                 >
-                                    {sending ? (
-                                        <>
-                                            <Loader2 size={16} className="animate-spin" /> Enviando...
-                                        </>
-                                    ) : (
-                                        <>
-                                            <Send size={16} /> Enviar mensaje
-                                        </>
-                                    )}
+                                    <Send size={16} /> Enviar mensaje
                                 </button>
                             </form>
                         )}
