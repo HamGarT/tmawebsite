@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import ImageInicio1 from '@/assets/images/inicio1.webp';
 import ProposalLink from '@/components/common/ProposalLink';
 import serviciosImage from '@/assets/images/serviciosSlide.webp';
@@ -6,7 +7,7 @@ import serviciosImage from '@/assets/images/serviciosSlide.webp';
 const serviciosData = [
   {
     id: '01',
-    title: 'Tratamiento y manejo de aguas',
+    title: 'Tratamiento, manejo de aguas y relaves',
     description: 'Aguas ácidas, cianuradas, industriales, servidas, potable, reúso, PTARI, PTARD y DETOX.'
   },
   {
@@ -87,9 +88,10 @@ export default function Servicios() {
         {/* Grid de Servicios */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {serviciosData.map((servicio) => (
-            <div
+            <Link
               key={servicio.id}
-              className="bg-white border border-gray-100 rounded-xl p-5 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.1)] hover:shadow-md transition-shadow duration-300 flex flex-col h-full"
+              to="/contacto#formulario"
+              className="bg-white border border-gray-100 rounded-xl p-5 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.1)] hover:shadow-md transition-shadow duration-300 flex flex-col h-full cursor-pointer"
             >
               <div className="flex items-start gap-3 mb-3">
                 {/* Etiqueta de número */}
@@ -115,7 +117,7 @@ export default function Servicios() {
               <p className="text-[12px] text-gray-500 leading-relaxed mt-1 text-left">
                 {servicio.description}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
 

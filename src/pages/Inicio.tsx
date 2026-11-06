@@ -17,10 +17,13 @@ import RemoteReviewIcon from '@/assets/icons/remote-review.png'
 import RemoteMeetingIcon from '@/assets/icons/remote-meeting.png'
 import SecureDocumentsIcon from '@/assets/icons/secure-documents.png'
 import QuickResponseIcon from '@/assets/icons/quick-response.png'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import ProposalLink from '@/components/common/ProposalLink';
 
 export default function Inicio() {
+    const navigate = useNavigate();
+    const goToContactForm = () => navigate('/contacto#formulario');
+
     return (
         <div className="w-full bg-gray-50 font-sans text-gray-800 relative">
 
@@ -61,7 +64,18 @@ export default function Inicio() {
 
             {/* 2. ASISTENCIA REMOTA MINI HERO */}
             <section className="relative z-20 px-4 md:px-12 -mt-12 md:-mt-10 w-full">
-                <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+                <div
+                    onClick={goToContactForm}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            goToContactForm();
+                        }
+                    }}
+                    role="link"
+                    tabIndex={0}
+                    className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden cursor-pointer transition-shadow hover:shadow-2xl"
+                >
                     <div className="px-5 md:px-8 py-6 flex flex-col xl:flex-row items-center justify-between gap-6 xl:gap-0">
 
                         {/* Título + descripción */}
@@ -101,7 +115,7 @@ export default function Inicio() {
 
                         {/* Botón */}
                         <div className="xl:pl-6 xl:border-l xl:border-gray-200 w-full xl:w-auto">
-                            <NavLink to="/presentacion" className="flex items-center justify-center gap-3 bg-[#fca311] hover:bg-[#e6940e] text-white text-sm md:text-base font-bold py-3.5 px-7 rounded-xl transition-colors whitespace-nowrap shadow-md">
+                            <NavLink to="/presentacion" onClick={(e) => e.stopPropagation()} className="flex items-center justify-center gap-3 bg-[#fca311] hover:bg-[#e6940e] text-white text-sm md:text-base font-bold py-3.5 px-7 rounded-xl transition-colors whitespace-nowrap shadow-md">
                                 <Play size={18} fill="currentColor" /> Ver presentación <ArrowRight size={18} />
                             </NavLink>
                         </div>

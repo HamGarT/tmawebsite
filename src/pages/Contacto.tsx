@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent, type ChangeEvent } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { AlertCircle, MapPin, Phone, Mail, Clock, Send, CheckCircle2, Loader2 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
@@ -9,7 +9,7 @@ const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 const CONTACT_EMAIL = 'proyectos@tmaingenieros.com';
-const WHATSAPP_NUMBER = '51945741482';
+const WHATSAPP_NUMBER = '51939826958';
 
 const buildWhatsAppUrl = (form: { nombre: string; email: string; telefono: string; asunto: string; mensaje: string }) => {
     const text = [
@@ -54,6 +54,7 @@ const inputBase =
 
 export default function Contacto() {
     const [searchParams] = useSearchParams();
+    const location = useLocation();
     const asuntoParam = searchParams.get('asunto');
     const [form, setForm] = useState({
         nombre: '',
@@ -67,10 +68,10 @@ export default function Contacto() {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        if (asuntoParam) {
+        if (asuntoParam || location.hash === '#formulario') {
             document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-    }, [asuntoParam]);
+    }, [asuntoParam, location.hash]);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));

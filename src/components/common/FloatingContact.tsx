@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { X, MessageCircle } from 'lucide-react';
 
 const WHATSAPP_URL =
-    'https://wa.me/51945741482?text=Hola%20quiero%20solicitar%20una%20propuesta%20t%C3%A9cnica';
+    'https://wa.me/51939826958?text=Hola%20quiero%20solicitar%20una%20propuesta%20t%C3%A9cnica';
 const TELEGRAM_URL = 'https://t.me/tmaingenieros';
 
 const WhatsAppIcon = ({ size = 24 }: { size?: number }) => (
